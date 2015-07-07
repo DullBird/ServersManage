@@ -2,6 +2,7 @@
 <decorators defaultdir="/WEB-INF/decorators">
 	<excludes>
 		<pattern>/index.jsp</pattern>
+		<pattern>/ajax/*</pattern>
 	</excludes>
 	<!-- 基础装饰器 -->
 	<decorator name="main" page="main.jsp">

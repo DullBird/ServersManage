@@ -35,7 +35,7 @@ public class TestDemo extends BaseTest{
 		/*if(null != user){
 			System.out.println("trueName:"+user.getTrueName());
 		}*/
-		Pagination<Logs> pagination = idemoService.pageDemo(1, 2);
+		//Pagination<Logs> pagination = idemoService.pageDemo(1, 2);
 		System.out.println(pagination.getTotalRows());
 	}
 

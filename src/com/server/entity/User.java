@@ -2,6 +2,10 @@ package com.server.entity;
 
 import java.sql.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * 用户实体
  * @author DullBird
@@ -9,21 +13,25 @@ import java.sql.Date;
  */
 public class User {
 
-	private Long userId; 		// 用户id
+	private Long id; 		// 用户id
+	@NotEmpty
 	private String userName; 	// 用户名
+	@NotEmpty
 	private String passWord; 	// 登陆密码
+	@NotNull
 	private Long rId; 			// 角色id
+	@NotEmpty
 	private String realName; 	// 真实姓名，管理员添加后不能修改
 	private String tel; 		// 联系方式
 	private Integer status; 	// 状态 1：显示 0：删除
 	private Date createDate; 	// 创建时间
 
-	public Long getUserId() {
-		return userId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUserName() {

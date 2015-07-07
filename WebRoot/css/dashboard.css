@@ -72,3 +72,7 @@ body {
 	background-color:#222;
 	color: #777;
 }
+
+.main-right-panel{
+	min-height: 630px;
+}

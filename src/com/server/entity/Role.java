@@ -2,22 +2,23 @@ package com.server.entity;
 
 /**
  * 角色实体
+ * 
  * @author DullBird
- * @date 2014-7-3
+ * @date 2015-7-7
  */
 public class Role {
-	
-	private int roleId;		//id
-	private String name;	//角色名
-	private String mark;	//说明
-	private int sort;		//排序
-	
-	public int getRoleId() {
-		return roleId;
+
+	private Long id;			//主键
+	private String name;		//角色名
+	private String remark;		//功能说明
+	private Long sort;			//排序
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -28,19 +29,19 @@ public class Role {
 		this.name = name;
 	}
 
-	public String getMark() {
-		return mark;
+	public String getRemark() {
+		return remark;
 	}
 
-	public void setMark(String mark) {
-		this.mark = mark;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
-	public int getSort() {
+	public Long getSort() {
 		return sort;
 	}
 
-	public void setSort(int sort) {
+	public void setSort(Long sort) {
 		this.sort = sort;
 	}
 
