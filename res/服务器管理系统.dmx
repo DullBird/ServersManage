@@ -3599,7 +3599,7 @@ Top=509.00</GraphDesc>
   <Hint></Hint>
   <DefaultValue></DefaultValue>
   <Nullable>1</Nullable>
-  <DataLength>10</DataLength>
+  <DataLength>20</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
 </DataModels_item2_item0_item7_item0_item2>
@@ -4068,7 +4068,7 @@ Top=320.00</GraphDesc>
   <ID>2</ID>
   <PID>0</PID>
   <RID>0</RID>
-  <Name>uid</Name>
+  <Name>userid</Name>
   <Caption></Caption>
   <TypeName></TypeName>
   <Memo>”√ªßid</Memo>
