@@ -62,6 +62,7 @@ public class UserAction {
 	 */
 	@RequestMapping(value = "/myInfo",method={RequestMethod.GET,RequestMethod.POST})
 	public String myInfo(Model model,HttpServletRequest request){
+		model.addAttribute(StaticParam.HEIGHT_LIGHT, "myInfo");
 		//获取session的userId
 		model.addAttribute("user",iuserService.getUser(2l));
 		return "user/myInfo";
@@ -75,6 +76,7 @@ public class UserAction {
 	 */
 	@RequestMapping(value = "/updatePwd",method={RequestMethod.GET,RequestMethod.POST})
 	public String updatePwd(Model model,HttpServletRequest request){
+		model.addAttribute(StaticParam.HEIGHT_LIGHT, "updatePwd");
 		return "user/updatePwd";
 	}
 	
