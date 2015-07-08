@@ -3,6 +3,8 @@
 <html>
 	<head>
 		<title>用户列表</title>
+		<script src="${base}/js/userDetail.js"></script>
+		<script type="text/javascript" src="${base}/js/bootstrap3.2.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div class="panel panel-default">
@@ -34,39 +36,45 @@
 							</select>
 					    </div>
 					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">状态</div>
+					    	<select name="status" class="form-control">
+					    		<option value="">全部</option>
+					    		<option <c:if test="${user.status==1}">selected="selected"</c:if> value="1">正常</option>
+					    		<option <c:if test="${user.status==0}">selected="selected"</c:if> value="0">删除</option>
+							</select>
+					    </div>
+					</div>
 					<button type="submit" class="btn btn-primary">查询</button>
   				</form>
   				<!-- 搜索的表单 -->
   			</div>
 			<!-- 用户列表表格 -->
 			<table class="table table-hover">
-				<thead>
+				<tbody>
 					<tr>
 						<th>序号</th>
-						<th>ID</th>
-						<th>用户名</th>
 						<th>真实姓名</th>
 						<th>联系电话</th>
 						<th>角色</th>
 						<th>状态</th>
 						<th>创建时间</th>
+						<th>详情</th>
 					</tr>
-				</thead>
-				<tbody>
 					<%-- 后台获取的数据 --%>
 					<c:forEach var="user" items="${pageBean.objLists}" varStatus="step">
 						<tr>
 							<td>${step.count}</td>
-							<td>${user.id}</td>
-							<td>${user.userName}</td>
 							<td>${user.realName}</td>
 							<td>${user.tel}</td>
 							<td>${user.roleName}</td>
-							<td>
+							<td id="deleteUser-td-${user.id}">
 								<c:if test="${user.status==1}">正常</c:if>
 								<c:if test="${user.status==0}">删除</c:if>
 							</td>
 							<td>${user.createDate}</td>
+							<td><a href="javascript:showModal('${base}/ajax/user/userDetail?id=${user.id}');">查看</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -76,5 +84,13 @@
 			</div>
 			<!-- 用户列表表格 -->
   		</div>
+  		<!-- 详情的弹出框 -->
+  		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    </div>
+		  </div>
+		</div>
+		<!-- 详情的弹出框 -->
 	</body>
 </html>

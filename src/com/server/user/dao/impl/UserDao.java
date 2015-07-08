@@ -37,8 +37,11 @@ public class UserDao extends BaseDao implements IUserDao {
 
 	@Override
 	public UserVo getUser(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select u.*,r.name as roleName from tb_server_user u,tb_server_role r ");
+		sql.append(" where u.rid=r.id ");
+		sql.append(" and u.id=? ");
+		return this.queryForBean(sql.toString(), UserVo.class, userId);
 	}
 
 	@Override
@@ -74,4 +77,45 @@ public class UserDao extends BaseDao implements IUserDao {
 		return this.queryForListBean(sql.toString(), Role.class);
 	}
 
+	@Override
+	public int updateUser(String passWord, String tel, Long userId) {
+		StringBuffer sql = new StringBuffer();
+		List<Object> args = new ArrayList<Object>();
+		sql.append(" update TB_SERVER_USER set ");
+		if(!StrUtils.isEmpty(passWord)){
+			sql.append(" password=?,");
+			args.add(EncryptUitls.MD5Digest(passWord));
+		}
+		if(!StrUtils.isEmpty(tel)){
+			sql.append(" tel=?,");
+			args.add(tel);
+		}
+		sql.delete(sql.length()-1, sql.length());
+		sql.append(" where id=? ");
+		args.add(userId);
+		System.out.println(sql.toString());
+		return this.saveORUpdate(sql.toString(), args.toArray());
+	}
+
+	@Override
+	public int updatePwd(String passWord, Long userId) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update TB_SERVER_USER set password=? where id=? ");
+		return this.saveORUpdate(sql.toString(),EncryptUitls.MD5Digest(passWord),userId);
+	}
+
+	@Override
+	public int updateTel(String tel, Long userId) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update TB_SERVER_USER set tel=? where id=? ");
+		return this.saveORUpdate(sql.toString(),tel,userId);
+	}
+
+	@Override
+	public int deleteUser(Long userId) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update TB_SERVER_USER set status=0 where id=? ");
+		return this.saveORUpdate(sql.toString(),userId);
+	}
+	
 }

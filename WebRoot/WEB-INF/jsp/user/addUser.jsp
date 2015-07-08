@@ -10,7 +10,7 @@
     <script type="text/javascript" src="${base}/js/jQuery.Hz2Py-min.js"></script>
   </head>
   <body>
-  	<div class="panel panel-default main-right-panel">
+  	<div class="panel panel-default ">
   		<div class="panel-heading">添加用户</div>
   		<div class="panel-body">
 		  	<form id="addForm" method="post" class="form-horizontal" role="form">
@@ -67,7 +67,7 @@
   			submitHandler: function() {
   				var currentForm = $(this.currentForm);
 	  			$.ajax({
-	  				url:'${base}/ajax/addUser',
+	  				url:'${base}/ajax/user/addUser',
 	  				type:'POST',
 	  				data:$(currentForm).serialize(),
 	  				success:function(date){
@@ -103,7 +103,7 @@
   					realName:{
   						required:true,
   						remote: {
-						    url: "${base}/ajax/checkUserExist",     //后台处理程序
+						    url: "${base}/ajax/user/checkUserExist",     //后台处理程序
 						    type: "post",               //数据发送方式
 						    dataType: "json",           //接受数据格式   
 						    data: {                     //要传递的数据

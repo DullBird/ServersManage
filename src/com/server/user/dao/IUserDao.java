@@ -47,5 +47,38 @@ public interface IUserDao {
 	 * @return
 	 */
 	public List<Role> queryRoleList();
+	
+	/**
+	 * 修改密码
+	 * @param passWord
+	 * @param userId
+	 * @return
+	 */
+	public int updatePwd(String passWord,Long userId);
+	
+	/**
+	 * 修改联系电话
+	 * @param tel
+	 * @param userId
+	 * @return
+	 */
+	public int updateTel(String tel,Long userId);
+	
+	/**
+	 * 修改用户信息，可修改的只有密码和联系电话（过期，保留）
+	 * @param passWord
+	 * @param tel
+	 * @param userId
+	 * @return
+	 */
+	@Deprecated
+	public int updateUser(String passWord,String tel,Long userId);
+	
+	/**
+	 * 删除用户（状态值置0）
+	 * @param userId
+	 * @return
+	 */
+	public int deleteUser(Long userId);
 
 }

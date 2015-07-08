@@ -37,5 +37,18 @@ public class TestUser extends BaseTest {
 	public void checkUserEsixt(){
 		System.out.println(iuserService.checkUserExist("赖永钊"));
 	}
+	
+	@Test
+	public void getUser(){
+		UserVo user = iuserService.getUser(2l);
+		System.out.println(user.getRoleName());
+	}
+	
+	@Test
+	public void updateUser(){
+		System.out.println(iuserService.updatePwd("654","123456", 2l));
+		System.out.println(iuserService.updateTel("sssssss", 2l));
+		//System.out.println(iuserService.updateUser("", "123", 2l));
+	}
 
 }

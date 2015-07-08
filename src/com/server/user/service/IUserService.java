@@ -5,6 +5,7 @@ import java.util.List;
 import com.server.entity.Role;
 import com.server.entity.User;
 import com.server.utils.page.Pagination;
+import com.server.vo.JsonResult;
 import com.server.vo.user.UserVo;
 
 /**
@@ -46,5 +47,53 @@ public interface IUserService {
 	 * @return
 	 */
 	public boolean checkUserExist(String realName);
-
+	
+	/**
+	 * 根据用户id查询出用户
+	 * @param userId
+	 * @return
+	 */
+	public UserVo getUser(Long userId);
+	
+	/**
+	 * 修改用户信息，可修改的只有密码和联系电话
+	 * @param passWord
+	 * @param tel
+	 * @param userId
+	 * @return
+	 */
+	public int updateUser(String passWord,String tel,Long userId);
+	
+	/**
+	 * 修改密码（含验证旧密码）
+	 * @param oldPwd
+	 * @param newPwd
+	 * @param userId
+	 * @return
+	 */
+	public JsonResult updatePwd(String oldPwd,String newPwd,Long userId);
+	
+	/**
+	 * 修改联系电话
+	 * @param tel
+	 * @param userId
+	 * @return
+	 */
+	public int updateTel(String tel,Long userId);
+	
+	/**
+	 * 修改密码（直接调用dao方法）
+	 * @param passWord
+	 * @param userId
+	 * @return
+	 */
+	public int updatePwd(String passWord,Long userId);
+	
+	/**
+	 * 删除用户（状态值置0）
+	 * @param userId
+	 * @return
+	 */
+	public int deleteUser(Long userId);
+	
 }
