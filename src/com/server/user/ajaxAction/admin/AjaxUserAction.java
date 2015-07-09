@@ -1,4 +1,4 @@
-package com.server.ajax.user;
+package com.server.user.ajaxAction.admin;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,15 +16,14 @@ import com.server.user.service.IUserService;
 import com.server.vo.JsonResult;
 import com.server.vo.user.UserVo;
 
-
 /**
- * 用户相关action
+ * 管理员的用户相关功能action
  * @author Dull Bird
- * @date 2015-7-7
+ * @date 2015-7-9
  * 
  */
-@Controller
-@RequestMapping("/ajax/user")
+@Controller("user.admin.AjaxUserAction")
+@RequestMapping("/user/ajax/admin")
 public class AjaxUserAction {
 	
 	@Resource(name = "user.service.UserService")
@@ -75,21 +74,7 @@ public class AjaxUserAction {
 	public String userDetail(User user,Model model){
 		UserVo userVo = iuserService.getUser(user.getId());
 		model.addAttribute("user", userVo);
-		return "user/userDetail";
-	}
-	
-	/**
-	 * 修改密码
-	 * @param oldPwd
-	 * @param newPwd
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value = "/updatePwd",method={RequestMethod.POST})
-	@ResponseBody
-	public JsonResult updatePwd(String oldPwd,String newPwd,HttpServletRequest request){
-		//获取session的userId
-		return iuserService.updatePwd(oldPwd,newPwd, 2l);
+		return "user/admin/userDetail";
 	}
 	
 	/**

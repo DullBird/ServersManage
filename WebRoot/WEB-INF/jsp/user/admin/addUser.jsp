@@ -67,7 +67,7 @@
   			submitHandler: function() {
   				var currentForm = $(this.currentForm);
 	  			$.ajax({
-	  				url:'${base}/ajax/user/addUser',
+	  				url:'${base}/user/ajax/admin/addUser',
 	  				type:'POST',
 	  				data:$(currentForm).serialize(),
 	  				success:function(date){
@@ -103,7 +103,7 @@
   					realName:{
   						required:true,
   						remote: {
-						    url: "${base}/ajax/user/checkUserExist",     //后台处理程序
+						    url: "${base}/user/ajax/admin/checkUserExist",     //后台处理程序
 						    type: "post",               //数据发送方式
 						    dataType: "json",           //接受数据格式   
 						    data: {                     //要传递的数据

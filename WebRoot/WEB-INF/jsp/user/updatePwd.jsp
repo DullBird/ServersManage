@@ -44,7 +44,7 @@
 				submitHandler : function() {
 					var currentForm = $(this.currentForm);
 					$.ajax({
-						url : '${base}/ajax/user/updatePwd',
+						url : '${base}/user/ajax/updatePwd',
 						type : 'POST',
 						data : $(currentForm).serialize(),
 						success : function(date) {

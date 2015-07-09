@@ -6,9 +6,12 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
 import com.server.server.dao.IServerDetailDao;
 import com.server.server.service.IServerDetailService;
+import com.server.server.service.IServerRelationService;
+import com.server.user.service.IUserServerService;
 
 /**
  * 
@@ -23,10 +26,27 @@ public class ServerDetailService implements IServerDetailService {
 
 	@Resource(name = "server.dao.ServerDao")
 	private IServerDetailDao iserverDetailDao;
+	
+	@Resource(name = "server.service.ServerRelationService")
+	private IServerRelationService iserverRelationService;
+	
+	@Resource(name = "user.service.UserServerService")
+	private IUserServerService iuserServerService;
 
 	@Override
 	public List<ServerType> queryServerTypeList() {
 		return iserverDetailDao.queryServerTypeList();
+	}
+
+	@Override
+	public void addServer(ServerDetail server) {
+		server.setId(iserverDetailDao.getSequenceId());
+		//添加服务器主体
+		int res = iserverDetailDao.addServer(server);
+		//添加服务器类型关系表
+		//iserverRelationService.addServerType(sId, stId);
+		//添加用户服务器关系表
+		//iuserServerService.addUserServer(userId, sId);
 	}
 	
 	

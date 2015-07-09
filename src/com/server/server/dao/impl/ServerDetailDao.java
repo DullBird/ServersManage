@@ -22,8 +22,20 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 
 	@Override
 	public int addServer(ServerDetail server) {
-		// TODO Auto-generated method stub
-		return 0;
+		StringBuffer sql = new StringBuffer();
+		sql.append(" insert into tb_server_serverdetail ");
+		sql.append(" values ");
+		sql.append(" ( id, name, cpu, memory, harddisk, stid, ");
+		sql.append(" remark, status, createdate, createuid, ");
+		sql.append(" createuser, ip, publicip, os, isvirtual, ");
+		sql.append(" model, services, postdevicecode) ");
+		sql.append(" values ");
+		sql.append(" ?,?,?,?,?,?,?,1,sysdate,?,?,?,?,?,?,?,?,? ");
+		return this.saveORUpdate(sql.toString(),server.getId(),server.getName(),server.getCpu(),
+				server.getMemory(),server.getHardDisk(),server.getStId(),
+				server.getRemark(),server.getCreateUid(),server.getCreateUser(),
+				server.getIp(),server.getPublicIp(),server.getOs(),server.getIsVirtual(),
+				server.getModel(),server.getServices(),server.getPostDeviceCode());
 	}
 
 	@Override
@@ -32,6 +44,10 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 		sql.append(" select * from TB_SERVER_SERVERTYPE ");
 		return this.queryForListBean(sql.toString(), ServerType.class);
 	}
-	
+
+	@Override
+	public long getSequenceId() {
+		return this.getSequenceId("seq_tb_server_serverdetail");
+	}
 
 }

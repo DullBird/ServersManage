@@ -5,9 +5,9 @@
 		<li id="queryDemo"><a href="${base}/demo/queryDemo">表单查询Demo</a></li>
 		<li id="pageDemo"><a href="${base}/demo/pageDemo">分页Demo</a></li>
 		<li id="addDemo"><a href="${base}/demo/addDemo">添加Demo</a></li> --%>
-		<li id="addUser"><a href="${base}/user/addUser">添加用户</a></li>
-		<li id="userList"><a href="${base}/user/userList">用户列表</a></li>
-		<li id="addServer"><a href="${base}/server/addServer">新增服务器</a></li>
+		<li id="addUser"><a href="${base}/user/admin/addUser">添加用户</a></li>
+		<li id="userList"><a href="${base}/user/admin/userList">用户列表</a></li>
+		<li id="addServer"><a href="${base}/server/operation/addServer">新增服务器</a></li>
 		<li id="myInfo"><a href="${base}/user/myInfo">我的信息</a></li>
 		<li id="updatePwd"><a href="${base}/user/updatePwd">修改密码</a></li>
 		<li><a href="#">Overview</a></li>

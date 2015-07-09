@@ -7,10 +7,11 @@
     <script type="text/javascript" src="${base}/js/sco.js/js/sco.message.js"></script>
   </head>
   <script type="text/javascript">
+  	//重置密码
   	function resetPwd(userId){
   		$("#resetPwd-btn").attr("contenteditable",true);
 		$.ajax({
-			url:'${base}/ajax/user/resetPwd',
+			url:'${base}/user/ajax/admin/resetPwd',
 			type:'POST',
 			data:'id='+userId,
 			success:function(date){
@@ -24,9 +25,10 @@
 		});
 	}
 	
+	//删除用户
 	function deleteUser(userId){
 		$.ajax({
-			url:'${base}/ajax/user/deleteUser',
+			url:'${base}/user/ajax/admin/deleteUser',
 			type:'POST',
 			data:'id='+userId,
 			success:function(date){

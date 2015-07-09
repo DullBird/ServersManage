@@ -13,7 +13,7 @@
        
    <!-- 启动扫描jlc下所有的controller --> 
    <context:component-scan base-package="com.server.*.action" />
-   <context:component-scan base-package="com.server.ajax" />
+   <context:component-scan base-package="com.server.*.ajaxAction" />
    
    <!-- 注册mvc驱动 -->
    <mvc:annotation-driven />

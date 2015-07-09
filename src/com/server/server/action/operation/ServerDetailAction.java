@@ -1,4 +1,4 @@
-package com.server.server.action;
+package com.server.server.action.operation;
 
 import javax.annotation.Resource;
 
@@ -13,14 +13,13 @@ import com.server.server.service.IServerDetailService;
 
 /**
  * 
- * 服务器信息管理相关action
+ * 运维人员的服务器管理相关功能action
  * @author Dull Bird
- * @date 2015-7-8
+ * @date 2015-7-9
  *
  */
-
-@RequestMapping("/server")
-@Controller
+@RequestMapping("/server/operation")
+@Controller("server.operation.ServerDetailAction")
 public class ServerDetailAction {
 	
 	@Resource(name = "server.service.ServerDetailService")
@@ -36,7 +35,7 @@ public class ServerDetailAction {
 	public String addServer(Model model,ServerDetail server){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "addServer");
 		model.addAttribute("serverType",iserverDetailService.queryServerTypeList());
-		return "server/addServer";
+		return "server/operation/addServer";
 	}
 
 }

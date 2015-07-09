@@ -2,6 +2,7 @@ package com.server.server.service;
 
 import java.util.List;
 
+import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
 
 /**
@@ -19,5 +20,11 @@ public interface IServerDetailService {
 	 * @return
 	 */
 	public List<ServerType> queryServerTypeList();
+	
+	/**
+	 * 新增服务器
+	 * @param server
+	 */
+	public void addServer(ServerDetail server);
 
 }

@@ -27,5 +27,11 @@ public interface IServerDetailDao {
 	 * @return
 	 */
 	public List<ServerType> queryServerTypeList();
+	
+	/**
+	 * 获取tb_server_serverdetail的sequenceid
+	 * @return
+	 */
+	public long getSequenceId();
 
 }

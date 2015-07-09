@@ -1743,7 +1743,7 @@ Top=72.00</GraphDesc>
   <Hint></Hint>
   <DefaultValue></DefaultValue>
   <Nullable>0</Nullable>
-  <DataLength>1</DataLength>
+  <DataLength>10</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
 </DataModels_item2_item0_item1_item0_item6>

@@ -11,7 +11,7 @@
   			<div class="panel-heading">用户列表</div>
   			<div class="panel-body">
   				<!-- 搜索的表单 -->
-  				<form class="form-inline" name="pageForm" action="${base}/user/userList" method="post" >
+  				<form class="form-inline" name="pageForm" action="${base}/user/admin/userList" method="post" >
   					<input type="hidden" name="toPage" value="1" />
   					<div class="form-group">
   						<div class="input-group">
@@ -74,13 +74,13 @@
 								<c:if test="${user.status==0}">删除</c:if>
 							</td>
 							<td>${user.createDate}</td>
-							<td><a href="javascript:showModal('${base}/ajax/user/userDetail?id=${user.id}');">查看</a></td>
+							<td><a href="javascript:showModal('${base}/user/ajax/admin/userDetail?id=${user.id}');">查看</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<div class="panel-body">
-				<c:import url="../main/page.jsp"></c:import>
+				<c:import url="../../main/page.jsp"></c:import>
 			</div>
 			<!-- 用户列表表格 -->
   		</div>

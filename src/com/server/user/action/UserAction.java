@@ -17,44 +17,17 @@ import com.server.utils.page.Pagination;
 import com.server.vo.user.UserVo;
 
 /**
- * 用户相关action
+ * 通用的用户相关功能action
  * @author Dull Bird
- * @date 2015-7-7
+ * @date 2015-7-9
  * 
  */
-@Controller
+@Controller("user.UserAction")
 @RequestMapping("/user")
 public class UserAction {
 	
 	@Resource(name = "user.service.UserService")
 	private IUserService iuserService;
-	
-	/**
-	 * 添加用户页面
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = "/addUser")
-	public String addUser(Model model){
-		model.addAttribute(StaticParam.HEIGHT_LIGHT, "addUser");
-		model.addAttribute("roleList",iuserService.queryRoleList());
-		return "user/addUser";
-	}
-	
-	/**
-	 * 用户列表
-	 * @param model
-	 * @param user
-	 * @param pagination
-	 * @return
-	 */
-	@RequestMapping(value = "/userList",method={RequestMethod.GET,RequestMethod.POST})
-	public String userList(Model model,@ModelAttribute("user") User user,Pagination pagination){
-		model.addAttribute(StaticParam.HEIGHT_LIGHT, "userList");
-		model.addAttribute("roleList",iuserService.queryRoleList());
-		model.addAttribute(StaticParam.PAGE_BEAN,iuserService.queryUserList(pagination.getToPage(), 12, user.getRealName(), user.getTel(), user.getStatus(), user.getrId()));
-		return "user/userList";
-	}
 	
 	/**
 	 * 我的信息
