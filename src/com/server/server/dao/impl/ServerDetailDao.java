@@ -25,14 +25,14 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 		StringBuffer sql = new StringBuffer();
 		sql.append(" insert into tb_server_serverdetail ");
 		sql.append(" values ");
-		sql.append(" ( id, name, cpu, memory, harddisk, stid, ");
+		sql.append(" ( id, name, cpu, memory, harddisk, ");
 		sql.append(" remark, status, createdate, createuid, ");
 		sql.append(" createuser, ip, publicip, os, isvirtual, ");
 		sql.append(" model, services, postdevicecode) ");
 		sql.append(" values ");
-		sql.append(" ?,?,?,?,?,?,?,1,sysdate,?,?,?,?,?,?,?,?,? ");
+		sql.append(" ?,?,?,?,?,?,1,sysdate,?,?,?,?,?,?,?,?,? ");
 		return this.saveORUpdate(sql.toString(),server.getId(),server.getName(),server.getCpu(),
-				server.getMemory(),server.getHardDisk(),server.getStId(),
+				server.getMemory(),server.getHardDisk(),
 				server.getRemark(),server.getCreateUid(),server.getCreateUser(),
 				server.getIp(),server.getPublicIp(),server.getOs(),server.getIsVirtual(),
 				server.getModel(),server.getServices(),server.getPostDeviceCode());

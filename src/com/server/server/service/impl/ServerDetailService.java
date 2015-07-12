@@ -39,14 +39,18 @@ public class ServerDetailService implements IServerDetailService {
 	}
 
 	@Override
-	public void addServer(ServerDetail server) {
+	public void addServer(ServerDetail server,Long[] stidList,Long[] userIdList) {
 		server.setId(iserverDetailDao.getSequenceId());
 		//添加服务器主体
 		int res = iserverDetailDao.addServer(server);
 		//添加服务器类型关系表
-		//iserverRelationService.addServerType(sId, stId);
+		for(Long stId:stidList){
+			iserverRelationService.addServerType(server.getId(), stId);
+		}
 		//添加用户服务器关系表
-		//iuserServerService.addUserServer(userId, sId);
+		for(Long userId:userIdList){
+			iuserServerService.addUserServer(userId, server.getId());
+		}
 	}
 	
 	

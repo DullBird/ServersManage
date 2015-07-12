@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>用户列表</title>
-		<script src="${base}/js/userDetail.js"></script>
+		<script src="${base}/js/user/userDetail.js"></script>
 		<script type="text/javascript" src="${base}/js/bootstrap3.2.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>

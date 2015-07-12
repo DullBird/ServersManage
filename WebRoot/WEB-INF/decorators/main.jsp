@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${base}/js/bootstrap3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="${base}/css/dashboard.css">
-     <script src="${base}/js/jquery-1.11.1.min.js"></script>
+    <script src="${base}/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+    	var base = "${base}";
+    </script>
     <decorator:head />
   </head>
   <body>

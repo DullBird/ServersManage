@@ -1529,7 +1529,7 @@ Top=72.00</GraphDesc>
 
 
 <DataModels_item2_item0_item1_item0>
-  <Count>18</Count>
+  <Count>17</Count>
 </DataModels_item2_item0_item1_item0>
 
 
@@ -1715,42 +1715,6 @@ Top=72.00</GraphDesc>
 
 <DataModels_item2_item0_item1_item0_item6>
   <CTVER>43543230</CTVER>
-  <ID>7</ID>
-  <PID>0</PID>
-  <RID>0</RID>
-  <Name>stId</Name>
-  <Caption></Caption>
-  <TypeName></TypeName>
-  <Memo>服务器类型id</Memo>
-  <Creator>0</Creator>
-  <CreateDate>2015/7/6 9:44:30</CreateDate>
-  <CreatorName></CreatorName>
-  <Modifier>0</Modifier>
-  <ModifyDate>1899/12/30</ModifyDate>
-  <ModifierName></ModifierName>
-  <VersionNo>0</VersionNo>
-  <HistoryID>0</HistoryID>
-  <LockStamp></LockStamp>
-  <DataLevel>0</DataLevel>
-  <OrderNo>6</OrderNo>
-  <DisplayName>服务器类型id</DisplayName>
-  <DataType>2</DataType>
-  <DataTypeName></DataTypeName>
-  <KeyFieldType>0</KeyFieldType>
-  <RelateTable></RelateTable>
-  <RelateField></RelateField>
-  <IndexType>0</IndexType>
-  <Hint></Hint>
-  <DefaultValue></DefaultValue>
-  <Nullable>0</Nullable>
-  <DataLength>10</DataLength>
-  <DataScale>0</DataScale>
-  <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item6>
-
-
-<DataModels_item2_item0_item1_item0_item7>
-  <CTVER>43543230</CTVER>
   <ID>15</ID>
   <PID>0</PID>
   <RID>0</RID>
@@ -1768,7 +1732,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>7</OrderNo>
+  <OrderNo>6</OrderNo>
   <DisplayName>备注说明</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -1782,10 +1746,10 @@ Top=72.00</GraphDesc>
   <DataLength>500</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item7>
+</DataModels_item2_item0_item1_item0_item6>
 
 
-<DataModels_item2_item0_item1_item0_item8>
+<DataModels_item2_item0_item1_item0_item7>
   <CTVER>43543230</CTVER>
   <ID>344</ID>
   <PID>0</PID>
@@ -1804,7 +1768,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>8</OrderNo>
+  <OrderNo>7</OrderNo>
   <DisplayName>状态</DisplayName>
   <DataType>2</DataType>
   <DataTypeName></DataTypeName>
@@ -1818,10 +1782,10 @@ Top=72.00</GraphDesc>
   <DataLength>1</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item8>
+</DataModels_item2_item0_item1_item0_item7>
 
 
-<DataModels_item2_item0_item1_item0_item9>
+<DataModels_item2_item0_item1_item0_item8>
   <CTVER>43543230</CTVER>
   <ID>426</ID>
   <PID>0</PID>
@@ -1840,7 +1804,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>9</OrderNo>
+  <OrderNo>8</OrderNo>
   <DisplayName>创建时间</DisplayName>
   <DataType>4</DataType>
   <DataTypeName></DataTypeName>
@@ -1854,10 +1818,10 @@ Top=72.00</GraphDesc>
   <DataLength>0</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item9>
+</DataModels_item2_item0_item1_item0_item8>
 
 
-<DataModels_item2_item0_item1_item0_item10>
+<DataModels_item2_item0_item1_item0_item9>
   <CTVER>43543230</CTVER>
   <ID>696</ID>
   <PID>0</PID>
@@ -1876,7 +1840,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>10</OrderNo>
+  <OrderNo>9</OrderNo>
   <DisplayName>创建人id</DisplayName>
   <DataType>2</DataType>
   <DataTypeName></DataTypeName>
@@ -1890,10 +1854,10 @@ Top=72.00</GraphDesc>
   <DataLength>10</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item10>
+</DataModels_item2_item0_item1_item0_item9>
 
 
-<DataModels_item2_item0_item1_item0_item11>
+<DataModels_item2_item0_item1_item0_item10>
   <CTVER>43543230</CTVER>
   <ID>707</ID>
   <PID>0</PID>
@@ -1912,7 +1876,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>11</OrderNo>
+  <OrderNo>10</OrderNo>
   <DisplayName>创建人</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -1926,10 +1890,10 @@ Top=72.00</GraphDesc>
   <DataLength>50</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item11>
+</DataModels_item2_item0_item1_item0_item10>
 
 
-<DataModels_item2_item0_item1_item0_item12>
+<DataModels_item2_item0_item1_item0_item11>
   <CTVER>43543230</CTVER>
   <ID>45</ID>
   <PID>0</PID>
@@ -1948,7 +1912,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>12</OrderNo>
+  <OrderNo>11</OrderNo>
   <DisplayName>ip地址</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -1962,10 +1926,10 @@ Top=72.00</GraphDesc>
   <DataLength>100</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item12>
+</DataModels_item2_item0_item1_item0_item11>
 
 
-<DataModels_item2_item0_item1_item0_item13>
+<DataModels_item2_item0_item1_item0_item12>
   <CTVER>43543230</CTVER>
   <ID>46</ID>
   <PID>0</PID>
@@ -1984,7 +1948,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>13</OrderNo>
+  <OrderNo>12</OrderNo>
   <DisplayName>公网ip</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -1998,10 +1962,10 @@ Top=72.00</GraphDesc>
   <DataLength>100</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item13>
+</DataModels_item2_item0_item1_item0_item12>
 
 
-<DataModels_item2_item0_item1_item0_item14>
+<DataModels_item2_item0_item1_item0_item13>
   <CTVER>43543230</CTVER>
   <ID>61</ID>
   <PID>0</PID>
@@ -2020,7 +1984,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>14</OrderNo>
+  <OrderNo>13</OrderNo>
   <DisplayName>操作系统</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -2034,10 +1998,10 @@ Top=72.00</GraphDesc>
   <DataLength>100</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item14>
+</DataModels_item2_item0_item1_item0_item13>
 
 
-<DataModels_item2_item0_item1_item0_item15>
+<DataModels_item2_item0_item1_item0_item14>
   <CTVER>43543230</CTVER>
   <ID>112</ID>
   <PID>0</PID>
@@ -2056,7 +2020,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>15</OrderNo>
+  <OrderNo>14</OrderNo>
   <DisplayName>是否虚拟机</DisplayName>
   <DataType>2</DataType>
   <DataTypeName></DataTypeName>
@@ -2070,10 +2034,10 @@ Top=72.00</GraphDesc>
   <DataLength>1</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item15>
+</DataModels_item2_item0_item1_item0_item14>
 
 
-<DataModels_item2_item0_item1_item0_item16>
+<DataModels_item2_item0_item1_item0_item15>
   <CTVER>43543230</CTVER>
   <ID>60</ID>
   <PID>0</PID>
@@ -2092,7 +2056,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>16</OrderNo>
+  <OrderNo>15</OrderNo>
   <DisplayName>服务器型号</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -2106,10 +2070,10 @@ Top=72.00</GraphDesc>
   <DataLength>100</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item16>
+</DataModels_item2_item0_item1_item0_item15>
 
 
-<DataModels_item2_item0_item1_item0_item17>
+<DataModels_item2_item0_item1_item0_item16>
   <CTVER>43543230</CTVER>
   <ID>77</ID>
   <PID>0</PID>
@@ -2128,7 +2092,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>17</OrderNo>
+  <OrderNo>16</OrderNo>
   <DisplayName>服务编码</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -2142,10 +2106,10 @@ Top=72.00</GraphDesc>
   <DataLength>50</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item17>
+</DataModels_item2_item0_item1_item0_item16>
 
 
-<DataModels_item2_item0_item1_item0_item18>
+<DataModels_item2_item0_item1_item0_item17>
   <CTVER>43543230</CTVER>
   <ID>94</ID>
   <PID>0</PID>
@@ -2164,7 +2128,7 @@ Top=72.00</GraphDesc>
   <HistoryID>0</HistoryID>
   <LockStamp></LockStamp>
   <DataLevel>0</DataLevel>
-  <OrderNo>18</OrderNo>
+  <OrderNo>17</OrderNo>
   <DisplayName>邮政设备号</DisplayName>
   <DataType>1</DataType>
   <DataTypeName></DataTypeName>
@@ -2178,7 +2142,7 @@ Top=72.00</GraphDesc>
   <DataLength>50</DataLength>
   <DataScale>0</DataScale>
   <GraphDesc></GraphDesc>
-</DataModels_item2_item0_item1_item0_item18>
+</DataModels_item2_item0_item1_item0_item17>
 
 
 <DataModels_item2_item0_item2>

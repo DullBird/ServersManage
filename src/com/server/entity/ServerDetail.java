@@ -24,7 +24,6 @@ public class ServerDetail {
 	private String memory;				//内存大小
 	@NotEmpty
 	private String hardDisk;			//硬盘大小
-	private Integer stId;				//服务器类型id
 	private String remark;				//备注说明
 	private Integer status;				//状态，1：显示 0：删除
 	private Date createDate;			//创建时间
@@ -70,12 +69,6 @@ public class ServerDetail {
 	}
 	public void setHardDisk(String hardDisk) {
 		this.hardDisk = hardDisk;
-	}
-	public Integer getStId() {
-		return stId;
-	}
-	public void setStId(Integer stId) {
-		this.stId = stId;
 	}
 	public String getRemark() {
 		return remark;

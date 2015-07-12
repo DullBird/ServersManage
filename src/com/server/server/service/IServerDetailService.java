@@ -24,7 +24,9 @@ public interface IServerDetailService {
 	/**
 	 * 新增服务器
 	 * @param server
+	 * @param stidList		主机类型id
+	 * @param userIdList	协助人员id
 	 */
-	public void addServer(ServerDetail server);
+	public void addServer(ServerDetail server,Long[] stidList,Long[] userIdList);
 
 }

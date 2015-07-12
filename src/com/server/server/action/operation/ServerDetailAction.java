@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.server.base.StaticParam;
 import com.server.entity.ServerDetail;
 import com.server.server.service.IServerDetailService;
+import com.server.user.service.IUserService;
 
 /**
  * 
@@ -25,6 +26,9 @@ public class ServerDetailAction {
 	@Resource(name = "server.service.ServerDetailService")
 	private IServerDetailService iserverDetailService;
 	
+	@Resource(name = "user.service.UserService")
+	private IUserService iuserService;
+	
 	/**
 	 * 增加服务器
 	 * @param model
@@ -34,7 +38,10 @@ public class ServerDetailAction {
 	@RequestMapping(value = "/addServer",method={RequestMethod.GET})
 	public String addServer(Model model,ServerDetail server){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "addServer");
+		//查询出所有服务器类型
 		model.addAttribute("serverType",iserverDetailService.queryServerTypeList());
+		//查询出角色为运维人员，观察者的状态正常的用户
+		model.addAttribute("user",iuserService.queryAddServerUser());
 		return "server/operation/addServer";
 	}
 

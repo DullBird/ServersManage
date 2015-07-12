@@ -1,5 +1,7 @@
 package com.server.server.ajaxAction.operation;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.server.entity.ServerDetail;
 import com.server.server.service.IServerDetailService;
 import com.server.vo.JsonResult;
 
@@ -18,8 +21,8 @@ import com.server.vo.JsonResult;
  *
  */
 @RequestMapping("/server/ajax/operation")
-@Controller("server.operation.ServerDetailAction")
-public class ServerDetailAction {
+@Controller("server.operation.AjaxServerDetailAction")
+public class AjaxServerDetailAction {
 	
 	@Resource(name = "server.service.ServerDetailService")
 	private IServerDetailService iserverDetailService;
@@ -30,9 +33,10 @@ public class ServerDetailAction {
 	 */
 	@RequestMapping(value = "/addServer",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult addServer(){
-		iserverDetailService.addServer(null);
-		return null;
+	public JsonResult addServer(ServerDetail server,
+			Long[] stidList,Long[] userIdList){
+		iserverDetailService.addServer(server,stidList,userIdList);
+		return new JsonResult(true);
 	}
 
 }

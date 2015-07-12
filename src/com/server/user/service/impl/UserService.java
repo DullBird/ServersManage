@@ -1,5 +1,6 @@
 package com.server.user.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -91,6 +92,16 @@ public class UserService implements IUserService {
 	@Override
 	public int deleteUser(Long userId) {
 		return userDao.deleteUser(userId);
+	}
+
+	@Override
+	public List<UserVo> queryAddServerUser() {
+		List<UserVo> userList = new ArrayList<UserVo>();
+		//添加运维人员
+		userList.addAll(this.queryUserList(1, 100, null, null, 1, 2l).getObjLists());
+		//添加观察者
+		userList.addAll(this.queryUserList(1, 100, null, null, 1, 3l).getObjLists());
+		return userList;
 	}
 	
 }

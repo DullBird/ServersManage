@@ -96,4 +96,13 @@ public interface IUserService {
 	 */
 	public int deleteUser(Long userId);
 	
+	/**
+	 * 查询出可为主机添加管理或观察的用户
+	 * 条件：
+	 * 	角色：运维人员或观察者
+	 *  状态：正常
+	 * @return
+	 */
+	public List<UserVo> queryAddServerUser();
+	
 }

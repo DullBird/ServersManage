@@ -12,24 +12,30 @@
 	<div class="panel panel-default ">
 		<div class="panel-heading">我的信息</div>
 		<div class="panel-body">
-			<form id="updatePwdForm" method="post" class="form-horizontal" role="form">
+			<form id="updatePwdForm" method="post" class="form-horizontal" autocomplete="off" role="form">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">旧密码</label>
 					<div class="col-sm-4">
 						<input name="oldPwd" id="oldPwd" type="password" class="form-control" placeholder="*请输入旧密码">
 					</div>
+					<%-- 表单验证错误信息div --%>
+				    <div class="col-sm-4 my-col-sm-4"></div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">新密码</label>
 					<div class="col-sm-4">
 						<input name="newPwd" id="newPwd" type="password" class="form-control" placeholder="*请输入新密码">
 					</div>
+					<%-- 表单验证错误信息div --%>
+				    <div class="col-sm-4 my-col-sm-4"></div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">再次输入</label>
 					<div class="col-sm-4">
 						<input name="reNewPwd" id="reNewPwd" type="password" class="form-control" placeholder="*请再次输入新密码">
 					</div>
+					<%-- 表单验证错误信息div --%>
+				    <div class="col-sm-4 my-col-sm-4"></div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
@@ -58,20 +64,14 @@
 					});
 					return false;
 				},
-				showErrors : function(map, list) {
-					var focussed = document.activeElement;
-					if (focussed && $(focussed).is("input, textarea")) {
-						$(focussed).popover('hide');
-					}
-					$.each(list, function(index, error) {
-						$(error.element).popover({
-							content : error.message,
-							trigger : 'manual',
-							placement : 'right',
-							container : 'body'
-						}).popover('show');
-					});
-				}
+				errorElement:"div",
+	  			wrapper:"div",
+	  			errorPlacement:function(error,element) {
+				    $(error).addClass("popover fade right in").css("left","-10px").css("top","-3px");
+				    $(error).children().addClass("popover-content");
+				    $(error).prepend('<div class="arrow"></div>');
+	  				$(error).appendTo(element.parent().parent().find(".my-col-sm-4"));
+	  			}
 			});
 
 			(function() {
