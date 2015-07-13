@@ -11,6 +11,7 @@ import com.server.base.StaticParam;
 import com.server.entity.ServerDetail;
 import com.server.server.service.IServerDetailService;
 import com.server.user.service.IUserService;
+import com.server.utils.page.Pagination;
 
 /**
  * 
@@ -43,6 +44,17 @@ public class ServerDetailAction {
 		//查询出角色为运维人员，观察者的状态正常的用户
 		model.addAttribute("user",iuserService.queryAddServerUser());
 		return "server/operation/addServer";
+	}
+	
+	/**
+	 * 服务器列表
+	 * @param model
+	 * @param server
+	 * @param pagination
+	 * @return
+	 */
+	public String serverList(Model model,ServerDetail server,Pagination pagination){
+		return null;
 	}
 
 }

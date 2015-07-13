@@ -2510,7 +2510,7 @@ Horz2=1</GraphDesc>
   <ID>86</ID>
   <PID>0</PID>
   <RID>0</RID>
-  <Name>appDatesource</Name>
+  <Name>appDatasource</Name>
   <Caption></Caption>
   <TypeName></TypeName>
   <Memo>应用数据源，包括主机ip，端口，sid</Memo>

@@ -21,7 +21,7 @@ public class UserServerDao extends BaseDao implements IUserServerDao {
 		sql.append(" insert into tb_server_userserver ");
 		sql.append(" (id, userid, sid) ");
 		sql.append(" values ");
-		sql.append(" seq_tb_server_userserver.nextval,?,? ");
+		sql.append(" (seq_tb_server_userserver.nextval,?,?) ");
 		return this.saveORUpdate(sql.toString(), userId,sId);
 	}
 

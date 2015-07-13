@@ -22,7 +22,7 @@ public class ServerRelationDao extends BaseDao implements IServerRelationDao {
 		sql.append(" insert into tb_server_serverrelation ");
 		sql.append(" (id, sid, stid) ");
 		sql.append(" values ");
-		sql.append(" seq_tb_server_serverrelation.nextval,?,? ");
+		sql.append(" (seq_tb_server_serverrelation.nextval,?,?) ");
 		return this.saveORUpdate(sql.toString(), sId,stId);
 	}
 

@@ -35,6 +35,9 @@ public class AjaxServerDetailAction {
 	@ResponseBody
 	public JsonResult addServer(ServerDetail server,
 			Long[] stidList,Long[] userIdList){
+		//获取seesion的用户信息
+		server.setCreateUid(1l);
+		server.setCreateUser("赖永钊");
 		iserverDetailService.addServer(server,stidList,userIdList);
 		return new JsonResult(true);
 	}

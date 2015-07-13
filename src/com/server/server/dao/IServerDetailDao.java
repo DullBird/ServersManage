@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
+import com.server.utils.page.Pagination;
+import com.server.vo.server.ServerDetailVo;
 
 /**
  * 
@@ -33,5 +35,14 @@ public interface IServerDetailDao {
 	 * @return
 	 */
 	public long getSequenceId();
-
+	
+	/**
+	 * 根据条件搜索出服务器列表（搜出所有）
+	 * @param toPage
+	 * @param pageSize
+	 * @param stId	服务器类型
+	 * @return
+	 */
+	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId);
+	
 }
