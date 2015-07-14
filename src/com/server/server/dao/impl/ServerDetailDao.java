@@ -53,15 +53,34 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 	}
 
 	@Override
-	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId) {
+	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId,Long userId) {
 		StringBuffer sql = new StringBuffer();
 		List<Object> args = new ArrayList<Object>();
-		sql.append(" select * from TB_SERVER_SERVERDETAIL sd ");
+		sql.append(" select sd.id,sd.name,sd.cpu,sd.memory,sd.harddisk, ");
+		sql.append(" sd.remark,sd.status,sd.createdate,sd.createuid,sd.createuser, ");
+		sql.append(" sd.ip,sd.publicip,sd.os,sd.isvirtual,sd.model,sd.services, ");
+		sql.append(" sd.postdevicecode, ");
+		sql.append(" listagg(st.name,',') within group (order by st.name) as stName ");
+		sql.append(" from tb_server_serverdetail sd,tb_server_serverrelation sr,tb_server_servertype st ");
+		if(null != userId && userId != 0){
+			sql.append(" ,tb_server_userserver us,tb_server_user u ");
+		}
+		sql.append(" where sd.id=sr.sid ");
+		sql.append(" and sr.stid=st.id ");
 		if(null != stId && stId != 0){
-			sql.append(" where sd.id=sr.sid ");
-			sql.append(" and sr.stid=? ");
+			sql.append(" and st.id=? ");
 			args.add(stId);
 		}
+		if(null != userId && userId != 0){
+			sql.append(" and sd.id = us.sid ");
+			sql.append(" and us.userid = u.id ");
+			sql.append(" and u.id=? ");
+			args.add(userId);
+		}
+		sql.append(" group by sd.id,sd.name,sd.cpu,sd.memory,sd.harddisk,sd.remark, ");
+		sql.append(" sd.status,sd.createdate,sd.createuid, ");
+		sql.append(" sd.createuser,sd.ip,sd.publicip,sd.os, ");
+		sql.append(" sd.isvirtual,sd.model,sd.services,sd.postdevicecode ");
 		return this.queryForPage(toPage, pageSize, sql.toString(),
 				ServerDetailVo.class, args.toArray());
 	}

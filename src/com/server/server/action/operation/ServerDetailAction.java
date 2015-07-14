@@ -36,7 +36,7 @@ public class ServerDetailAction {
 	 * @param server
 	 * @return
 	 */
-	@RequestMapping(value = "/addServer",method={RequestMethod.GET})
+	@RequestMapping(value = "/addServer",method={RequestMethod.GET,RequestMethod.POST})
 	public String addServer(Model model,ServerDetail server){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "addServer");
 		//查询出所有服务器类型
@@ -47,14 +47,18 @@ public class ServerDetailAction {
 	}
 	
 	/**
-	 * 服务器列表
+	 * 我的服务器
 	 * @param model
 	 * @param server
 	 * @param pagination
 	 * @return
 	 */
-	public String serverList(Model model,ServerDetail server,Pagination pagination){
-		return null;
+	@RequestMapping(value = "/myServerList",method={RequestMethod.GET,RequestMethod.POST})
+	public String serverList(Model model,Long stId,Pagination pagination){
+		model.addAttribute(StaticParam.HEIGHT_LIGHT, "myServerList");
+		//获取seesion的用户信息
+		model.addAttribute("server",iserverDetailService.myServerList(1, 12, stId, 7l));
+		return "server/operation/myServerList";
 	}
 
 }

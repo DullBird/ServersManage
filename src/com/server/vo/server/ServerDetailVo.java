@@ -16,11 +16,20 @@ import com.server.vo.user.UserServerVo;
  */
 public class ServerDetailVo extends ServerDetail {
 	
+	private String stName;				//服务器类型名字，多个以,分隔
 	private List<Proxy> proxyList;		//代理服务器列表
 	private List<WebApp> webAppList;	//应用服务器列表
 	private List<Database> dbList;		//数据库服务器列表
 	private List<UserServerVo> userServerList;	//可管理该服务器的用户
 	
+	public String getStName() {
+		return stName;
+	}
+
+	public void setStName(String stName) {
+		this.stName = stName;
+	}
+
 	public List<Proxy> getProxyList() {
 		return proxyList;
 	}

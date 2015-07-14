@@ -12,6 +12,8 @@ import com.server.server.dao.IServerDetailDao;
 import com.server.server.service.IServerDetailService;
 import com.server.server.service.IServerRelationService;
 import com.server.user.service.IUserServerService;
+import com.server.utils.page.Pagination;
+import com.server.vo.server.ServerDetailVo;
 
 /**
  * 
@@ -51,6 +53,18 @@ public class ServerDetailService implements IServerDetailService {
 		for(Long userId:userIdList){
 			iuserServerService.addUserServer(userId, server.getId());
 		}
+	}
+
+	@Override
+	public Pagination<ServerDetailVo> myServerList(int toPage, int pageSize,
+			Long stId, Long userId) {
+		return iserverDetailDao.queryServerList(toPage, pageSize, stId, userId);
+	}
+
+	@Override
+	public Pagination<ServerDetailVo> allServerList(int toPage, int pageSize,
+			Long stId) {
+		return iserverDetailDao.queryServerList(toPage, pageSize, stId, null);
 	}
 	
 	

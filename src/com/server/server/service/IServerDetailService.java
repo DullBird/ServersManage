@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
+import com.server.utils.page.Pagination;
+import com.server.vo.server.ServerDetailVo;
 
 /**
  * 
@@ -28,5 +30,26 @@ public interface IServerDetailService {
 	 * @param userIdList	协助人员id
 	 */
 	public void addServer(ServerDetail server,Long[] stidList,Long[] userIdList);
+	
+	/**
+	 * 服务器列表（某用户可管理的服务器列表）
+	 * 运维人员，观察者调用
+	 * @param toPage
+	 * @param pageSize
+	 * @param stId
+	 * @param userId
+	 * @return
+	 */
+	public Pagination<ServerDetailVo> myServerList(int toPage,int pageSize,Long stId,Long userId);
+	
+	/**
+	 * 服务器列表（全部服务器列表）
+	 * 管理员调用
+	 * @param toPage
+	 * @param pageSize
+	 * @param stId
+	 * @return
+	 */
+	public Pagination<ServerDetailVo> allServerList(int toPage,int pageSize,Long stId);
 
 }

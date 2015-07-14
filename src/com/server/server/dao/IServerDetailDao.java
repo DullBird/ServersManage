@@ -37,12 +37,13 @@ public interface IServerDetailDao {
 	public long getSequenceId();
 	
 	/**
-	 * 根据条件搜索出服务器列表（搜出所有）
+	 * 根据条件查询出服务器列表
 	 * @param toPage
 	 * @param pageSize
-	 * @param stId	服务器类型
+	 * @param stId		服务器类型id
+	 * @param userId	用户id
 	 * @return
 	 */
-	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId);
+	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId,Long userId);
 	
 }

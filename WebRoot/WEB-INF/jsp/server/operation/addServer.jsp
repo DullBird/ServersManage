@@ -73,12 +73,9 @@
 				    <div class="col-sm-6">
 				      <div style="padding-top: 0px;padding-bottom: 5px;" class="checkbox">
 				      	<c:forEach var="serverType" items="${serverType}">
-				      		<%-- 不显示综合服务器 --%>
-				      		<c:if test="${serverType.id != 0}">
-					      		<label class="checkbox-inline">
-					          		<input id="${serverType.tableName}" name="stidList" value="${serverType.id}" type="checkbox"> ${serverType.name}
-					        	</label>
-				        	</c:if>
+				      		<label class="checkbox-inline">
+				          		<input id="${serverType.tableName}" name="stidList" value="${serverType.id}" type="checkbox"> ${serverType.name}
+				        	</label>
 				      	</c:forEach>
 				      </div>
 				    </div>
