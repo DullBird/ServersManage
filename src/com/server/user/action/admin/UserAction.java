@@ -33,7 +33,7 @@ public class UserAction {
 	@RequestMapping(value = "/addUser")
 	public String addUser(Model model){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "addUser");
-		model.addAttribute("roleList",iuserService.queryRoleList());
+		//model.addAttribute("roleList",iuserService.queryRoleList());
 		return "user/admin/addUser";
 	}
 	

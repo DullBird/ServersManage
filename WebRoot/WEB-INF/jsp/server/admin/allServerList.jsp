@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <html>
 	<head>
 		<title>服务器列表</title>
@@ -18,8 +19,18 @@
 					    	<select name="stId" class="form-control">
 					    		<option value="">全部</option>
 					    		<c:forEach var="serverType" items="${serverType}">
-					    			<option value="${serverType.id}"  >${serverType.name}</option>
+					    			<option value="${serverType.id}" <c:if test="${stId == serverType.id}">selected="selected"</c:if> >${serverType.name}</option>
 					    		</c:forEach>
+							</select>
+					    </div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">服务器状态</div>
+					    	<select name="status" class="form-control">
+					    		<option value="">全部</option>
+					    		<option value="1" <c:if test="${status == 1}">selected="selected"</c:if> >显示</option>
+					    		<option value="0" <c:if test="${status == 0}">selected="selected"</c:if> >已删除</option>
 							</select>
 					    </div>
 					</div>
@@ -37,8 +48,10 @@
 						<th>内存大小</th>
 						<th>硬盘大小</th>
 						<th>ip</th>
-						<th>服务器类型</th>
 						<th>状态</th>
+						<th>服务器类型</th>
+						<th>创建人</th>
+						<th>创建时间</th>
 					</tr>
 					<%-- 后台获取的数据 --%>
 					<c:forEach var="server" items="${pageBean.objLists}" varStatus="step">
@@ -49,10 +62,13 @@
 							<td>${server.memory}</td>
 							<td>${server.hardDisk}</td>
 							<td>${server.ip}</td>
-							<td>${server.stName}</td>
 							<td>
-								
+								<c:if test="${server.status == 1}">显示</c:if>
+								<c:if test="${server.status == 0}">已删除</c:if>
 							</td>
+							<td>${server.stName}</td>
+							<td>${server.createUser}</td>
+							<td><fmt:formatDate value="${server.createDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>

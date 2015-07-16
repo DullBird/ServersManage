@@ -37,12 +37,15 @@ public class ServerDetailAction {
 	 * @return
 	 */
 	@RequestMapping(value = "/allServerList",method={RequestMethod.GET,RequestMethod.POST})
-	public String serverList(Model model, Long stId,Pagination pagination){
+	public String serverList(Model model,Long stId,Integer status,Pagination pagination){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "allServerList");
+		//用于回显，基础类型没有保留空的构造方法，因此使用@ModelAttribute回报错
+		model.addAttribute("stId", stId);
+		model.addAttribute("status",status);
 		//查询出所有服务器类型
 		model.addAttribute("serverType",iserverDetailService.queryServerTypeList());
-		model.addAttribute(StaticParam.PAGE_BEAN,iserverDetailService.allServerList(1, 12, stId));
-		return "server/admin/myServerList";
+		model.addAttribute(StaticParam.PAGE_BEAN,iserverDetailService.allServerList(pagination.getToPage(), 12, stId,status));
+		return "server/admin/allServerList";
 	}
 
 }

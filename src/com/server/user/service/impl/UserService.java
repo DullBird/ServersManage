@@ -42,7 +42,7 @@ public class UserService implements IUserService {
 	@Override
 	public Pagination<UserVo> queryUserList(int toPage, int pageSize,
 			String realName, String tel, Integer status, Long rId) {
-		return userDao.queryUserList(toPage, pageSize, realName, tel, status, rId);
+		return userDao.queryUserList(toPage, pageSize, realName, tel, status, rId,null);
 	}
 
 	@Override
@@ -102,6 +102,16 @@ public class UserService implements IUserService {
 		//添加观察者
 		userList.addAll(this.queryUserList(1, 100, null, null, 1, 3l).getObjLists());
 		return userList;
+	}
+
+	@Override
+	public UserVo queryUserByUserName(String userName) {
+		//查询出状态为1（正常）的用户
+		List<UserVo> userList = userDao.queryUserList(1, 10, null, null, 1, null, userName).getObjLists();
+		if(userList.size() > 0){
+			return userList.get(0);
+		}
+		return null;
 	}
 	
 }

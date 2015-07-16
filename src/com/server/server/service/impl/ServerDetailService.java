@@ -58,13 +58,13 @@ public class ServerDetailService implements IServerDetailService {
 	@Override
 	public Pagination<ServerDetailVo> myServerList(int toPage, int pageSize,
 			Long stId, Long userId) {
-		return iserverDetailDao.queryServerList(toPage, pageSize, stId, userId);
+		return iserverDetailDao.queryServerList(toPage, pageSize, stId, userId,1);
 	}
 
 	@Override
 	public Pagination<ServerDetailVo> allServerList(int toPage, int pageSize,
-			Long stId) {
-		return iserverDetailDao.queryServerList(toPage, pageSize, stId, null);
+			Long stId,Integer status) {
+		return iserverDetailDao.queryServerList(toPage, pageSize, stId, null,status);
 	}
 	
 	

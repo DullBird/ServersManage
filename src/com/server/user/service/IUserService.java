@@ -42,6 +42,13 @@ public interface IUserService {
 	public Pagination<UserVo> queryUserList(int toPage,int pageSize,String realName,String tel,Integer status,Long rId);
 	
 	/**
+	 * 根据用户名搜索出用户信息（若有多个，默认给出第一个）
+	 * @param userName
+	 * @return
+	 */
+	public UserVo queryUserByUserName(String userName);
+	
+	/**
 	 * 验证用户是否已经存在
 	 * @param realName
 	 * @return

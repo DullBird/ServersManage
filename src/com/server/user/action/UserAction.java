@@ -33,7 +33,7 @@ public class UserAction {
 	 * 我的信息
 	 * @return
 	 */
-	@RequestMapping(value = "/myInfo",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/myInfo",method={RequestMethod.GET})
 	public String myInfo(Model model,HttpServletRequest request){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "myInfo");
 		//获取session的userId
@@ -47,10 +47,19 @@ public class UserAction {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/updatePwd",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/updatePwd",method={RequestMethod.GET})
 	public String updatePwd(Model model,HttpServletRequest request){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "updatePwd");
 		return "user/updatePwd";
+	}
+	
+	/**
+	 * 后台欢迎页面
+	 * @return
+	 */
+	@RequestMapping(value = "/welcome",method={RequestMethod.GET})
+	public String welcome(){
+		return "welcome";
 	}
 	
 }

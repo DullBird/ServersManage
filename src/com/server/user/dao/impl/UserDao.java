@@ -46,7 +46,7 @@ public class UserDao extends BaseDao implements IUserDao {
 
 	@Override
 	public Pagination<UserVo> queryUserList(int toPage,int pageSize,String realName, 
-			String tel,Integer status, Long rId) {
+			String tel,Integer status, Long rId,String userName) {
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select u.*,r.name as roleName from tb_server_user u,tb_server_role r ");
 		sql.append(" where u.rid=r.id ");
@@ -66,6 +66,10 @@ public class UserDao extends BaseDao implements IUserDao {
 		if(null != rId){
 			sql.append(" and u.rid=? ");
 			args.add(rId);
+		}
+		if(!StrUtils.isEmpty(userName)){
+			sql.append(" and u.username=? ");
+			args.add(userName);
 		}
 		return this.queryForPage(toPage, pageSize, sql.toString(), UserVo.class,args.toArray());
 	}

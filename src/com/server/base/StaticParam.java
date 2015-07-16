@@ -8,7 +8,8 @@ package com.server.base;
 public class StaticParam {
 	
 	public static String HEIGHT_LIGHT = "height_light";
-	
 	public static String PAGE_BEAN = "pageBean";
+	public static String SESSION_USER = "sessionUser";
+	
 	
 }

@@ -42,8 +42,9 @@ public interface IServerDetailDao {
 	 * @param pageSize
 	 * @param stId		服务器类型id
 	 * @param userId	用户id
+	 * @param status	状态 0：删除 1：显示
 	 * @return
 	 */
-	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId,Long userId);
+	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId,Long userId,Integer status);
 	
 }

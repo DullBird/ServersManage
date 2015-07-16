@@ -32,7 +32,7 @@ public interface IServerDetailService {
 	public void addServer(ServerDetail server,Long[] stidList,Long[] userIdList);
 	
 	/**
-	 * 服务器列表（某用户可管理的服务器列表）
+	 * 服务器列表（某用户可管理的服务器列表，只能查出显示状态的服务器）
 	 * 运维人员，观察者调用
 	 * @param toPage
 	 * @param pageSize
@@ -48,8 +48,9 @@ public interface IServerDetailService {
 	 * @param toPage
 	 * @param pageSize
 	 * @param stId
+	 * @param status	服务器状态
 	 * @return
 	 */
-	public Pagination<ServerDetailVo> allServerList(int toPage,int pageSize,Long stId);
+	public Pagination<ServerDetailVo> allServerList(int toPage,int pageSize,Long stId,Integer status);
 
 }

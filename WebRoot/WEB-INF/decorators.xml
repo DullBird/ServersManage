@@ -3,6 +3,7 @@
 	<excludes>
 		<pattern>/index.jsp</pattern>
 		<pattern>/user/ajax/*</pattern>
+		<pattern>/login*</pattern>
 	</excludes>
 	<!-- 基础装饰器 -->
 	<decorator name="main" page="main.jsp">

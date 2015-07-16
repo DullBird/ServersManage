@@ -1,0 +1,8 @@
+body{background: #3b3e40 none repeat scroll 0 0;}
+section{margin: 200px auto 0;width:600px;text-align: center;}
+section h1{color: #fff;font-family: "Open Sans",sans-serif;font-size: 36px;letter-spacing: -1px;margin-bottom: 15px;text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);}
+section form{margin-left: 145px;}
+.login-btn{width: 300px;}
+.input-group span{top:0px;}
+.verifyCode{width:60%;float: left;margin-right: 10px;}
+.form-group-indiv{width: 300px;float: left;margin-bottom: 10px;}

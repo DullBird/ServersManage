@@ -38,9 +38,10 @@ public interface IUserDao {
 	 * @param tel
 	 * @param status
 	 * @param rId
+	 * @param userName
 	 * @return
 	 */
-	public Pagination<UserVo> queryUserList(int toPage,int pageSize,String realName,String tel,Integer status,Long rId);
+	public Pagination<UserVo> queryUserList(int toPage,int pageSize,String realName,String tel,Integer status,Long rId,String userName);
 	
 	/**
 	 * 查询出所有角色

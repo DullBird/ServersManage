@@ -53,7 +53,8 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 	}
 
 	@Override
-	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,Long stId,Long userId) {
+	public Pagination<ServerDetailVo> queryServerList(int toPage,int pageSize,
+			Long stId,Long userId,Integer status) {
 		StringBuffer sql = new StringBuffer();
 		List<Object> args = new ArrayList<Object>();
 		sql.append(" select sd.id,sd.name,sd.cpu,sd.memory,sd.harddisk, ");
@@ -76,6 +77,10 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 			sql.append(" and us.userid = u.id ");
 			sql.append(" and u.id=? ");
 			args.add(userId);
+		}
+		if(null != status){
+			sql.append(" and sd.status=? ");
+			args.add(status);
 		}
 		sql.append(" group by sd.id,sd.name,sd.cpu,sd.memory,sd.harddisk,sd.remark, ");
 		sql.append(" sd.status,sd.createdate,sd.createuid, ");
