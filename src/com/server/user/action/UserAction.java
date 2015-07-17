@@ -2,6 +2,7 @@ package com.server.user.action;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,10 +35,11 @@ public class UserAction {
 	 * @return
 	 */
 	@RequestMapping(value = "/myInfo",method={RequestMethod.GET})
-	public String myInfo(Model model,HttpServletRequest request){
+	public String myInfo(Model model,HttpSession session){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "myInfo");
 		//获取session的userId
-		model.addAttribute("user",iuserService.getUser(2l));
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		model.addAttribute("user",iuserService.getUser(sessionUser.getId()));
 		return "user/myInfo";
 	}
 	

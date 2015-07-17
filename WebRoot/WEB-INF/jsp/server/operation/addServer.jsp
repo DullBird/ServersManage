@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="${base}/js/sco.js/css/sco.message.css">
     <script type="text/javascript" src="${base}/js/sco.js/js/sco.message.js"></script>
     <script type="text/javascript" src="${base}/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="${base}/js/bootstrap3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${base}/js/server/addServer.js"></script>
   </head>
   <body>

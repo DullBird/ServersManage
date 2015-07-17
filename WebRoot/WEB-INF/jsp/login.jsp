@@ -45,7 +45,7 @@
 		    	<div class="form-group-indiv">
 		    		<%-- 保持结构一致，多添加一个无用的div --%>
 		    		<div>
-		    			<input name="verifyCode" class="form-control input-lg verifyCode" type="text" placeholder="验证码" />
+		    			<input name="verifyCode" maxlength="4" class="form-control input-lg verifyCode" type="text" placeholder="验证码" />
 		    			<img id="verifyCodeImg" src="${base}/verifyCode" />
 		    		</div>
 		    	</div>

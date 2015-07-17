@@ -1,6 +1,9 @@
 package com.server.server.action.operation;
 
+import java.util.List;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,8 @@ import com.server.entity.ServerDetail;
 import com.server.server.service.IServerDetailService;
 import com.server.user.service.IUserService;
 import com.server.utils.page.Pagination;
+import com.server.vo.server.ServerDetailVo;
+import com.server.vo.user.UserVo;
 
 /**
  * 
@@ -54,10 +59,12 @@ public class ServerDetailAction {
 	 * @return
 	 */
 	@RequestMapping(value = "/myServerList",method={RequestMethod.GET,RequestMethod.POST})
-	public String serverList(Model model,Long stId,Pagination pagination){
+	public String serverList(Model model,Long stId,Pagination pagination,
+			HttpSession session){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "myServerList");
 		//获取seesion的用户信息
-		model.addAttribute("server",iserverDetailService.myServerList(1, 12, stId, 7l));
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		model.addAttribute(StaticParam.PAGE_BEAN,iserverDetailService.myServerList(1, 12, stId, sessionUser.getId()));
 		return "server/operation/myServerList";
 	}
 

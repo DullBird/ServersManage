@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %> 
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
+<c:set var="sessionUser" value="${sessionScope.sessionUser} "></c:set>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="${base}/js/bootstrap3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="${base}/css/dashboard.css">
     <script src="${base}/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="${base}/js/bootstrap3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     	var base = "${base}";
     </script>

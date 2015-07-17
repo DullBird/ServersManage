@@ -14,10 +14,13 @@ $(function(){
   				data:$(currentForm).serialize(),
   				success:function(date){
   					if(date.success){
-  						$.scojs_message('添加成功，请到服务器列表查看详情', $.scojs_message.TYPE_OK);
-  						$(currentForm)[0].reset();
+  						//登录成功跳转到后台欢迎页
+  						location.href = base + "/user/welcome";
   					}else{
-  						$.scojs_message('参数异常', $.scojs_message.TYPE_ERROR);
+  						$.scojs_message(date.errorMsg, $.scojs_message.TYPE_ERROR);
+  						//错误后重置表单，重新获取验证码
+  						$(currentForm)[0].reset();
+  						$("#verifyCodeImg").click();
   					}
   				}
   			});
@@ -42,7 +45,7 @@ $(function(){
 		messages:{
 			userName:{required:"请填写用户名"},
 			passWord:{required:"请填写密码"},
-			verifyCode:{required:"请填验证码"}
+			verifyCode:{required:"请填写验证码"}
 		}
 	});
 	

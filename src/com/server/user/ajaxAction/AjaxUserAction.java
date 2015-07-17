@@ -2,6 +2,7 @@ package com.server.user.ajaxAction;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -40,9 +41,11 @@ public class AjaxUserAction {
 	 */
 	@RequestMapping(value = "/updatePwd",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult updatePwd(String oldPwd,String newPwd,HttpServletRequest request){
+	public JsonResult updatePwd(String oldPwd,String newPwd,
+		HttpSession session){
 		//获取session的userId
-		return iuserService.updatePwd(oldPwd,newPwd, 2l);
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		return iuserService.updatePwd(oldPwd,newPwd, sessionUser.getId());
 	}
 	
 }

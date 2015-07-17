@@ -1,5 +1,8 @@
 package com.server.vo.user;
 
+import javax.servlet.http.HttpSession;
+
+import com.server.base.StaticParam;
 import com.server.entity.User;
 
 /**
@@ -18,6 +21,11 @@ public class UserVo extends User {
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+	
+	//获取session当中的user对象
+	public static UserVo getSessionUser(HttpSession session){
+		return (UserVo) session.getAttribute(StaticParam.SESSION_USER);
 	}
 
 }

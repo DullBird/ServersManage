@@ -3,6 +3,7 @@ package com.server.server.ajaxAction.operation;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.server.entity.ServerDetail;
 import com.server.server.service.IServerDetailService;
 import com.server.vo.JsonResult;
+import com.server.vo.user.UserVo;
 
 /**
  * 
@@ -33,11 +35,12 @@ public class AjaxServerDetailAction {
 	 */
 	@RequestMapping(value = "/addServer",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult addServer(ServerDetail server,
-			Long[] stidList,Long[] userIdList){
+	public JsonResult addServer(ServerDetail server,Long[] stidList,
+			Long[] userIdList,HttpSession session){
 		//获取seesion的用户信息
-		server.setCreateUid(1l);
-		server.setCreateUser("赖永钊");
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		server.setCreateUid(sessionUser.getId());
+		server.setCreateUser(sessionUser.getRealName());
 		iserverDetailService.addServer(server,stidList,userIdList);
 		return new JsonResult(true);
 	}

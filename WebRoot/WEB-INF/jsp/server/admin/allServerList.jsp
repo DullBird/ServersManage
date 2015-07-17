@@ -4,7 +4,6 @@
 <html>
 	<head>
 		<title>服务器列表</title>
-		<script type="text/javascript" src="${base}/js/bootstrap3.2.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div class="panel panel-default">
@@ -78,13 +77,5 @@
 			</div>
 			<!-- 用户列表表格 -->
   		</div>
-  		<!-- 详情的弹出框 -->
-  		<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		    </div>
-		  </div>
-		</div> -->
-		<!-- 详情的弹出框 -->
 	</body>
 </html>

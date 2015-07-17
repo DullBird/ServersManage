@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import com.server.base.StaticParam;
 import com.server.user.service.IUserService;
 import com.server.vo.user.LoginUserVo;
 import com.server.vo.user.UserVo;
@@ -45,6 +46,16 @@ public class CommonAction {
 	@RequestMapping(value = "/login", method = { RequestMethod.GET})
 	public String login() {
 		return "login";
+	}
+	
+	/**
+	 * 注销
+	 * @return
+	 */
+	@RequestMapping(value = "/logout", method = { RequestMethod.GET})
+	public String logout(HttpSession session){
+		session.removeAttribute(StaticParam.SESSION_USER);
+		return "redirect:/login";
 	}
 
 	/**

@@ -65,12 +65,19 @@ public class AjaxCommonAction {
 		}
 		//验证通过，保存用户信息到session，并返回成功
 		isSuccess = true;
-		User sessionUser = new User();
+		UserVo sessionUser = new UserVo();
+		sessionUser.setId(user.getId());
 		sessionUser.setUserName(user.getUserName());
 		sessionUser.setRealName(user.getRealName());
 		sessionUser.setTel(user.getTel());
+		sessionUser.setrId(user.getrId());
+		sessionUser.setRoleName(user.getRoleName());
 		session.setAttribute(StaticParam.SESSION_USER, sessionUser);
 		return new JsonResult(isSuccess,null);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(EncryptUitls.MD5Digest("123456"));
 	}
 
 }
