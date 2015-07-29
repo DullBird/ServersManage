@@ -1,9 +1,13 @@
 package com.server.user.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.server.base.BaseDao;
 import com.server.user.dao.IUserServerDao;
+import com.server.vo.user.UserServerVo;
+import com.server.vo.user.UserVo;
 
 /**
  * 
@@ -23,6 +27,26 @@ public class UserServerDao extends BaseDao implements IUserServerDao {
 		sql.append(" values ");
 		sql.append(" (seq_tb_server_userserver.nextval,?,?) ");
 		return this.saveORUpdate(sql.toString(), userId,sId);
+	}
+
+	@Override
+	public List<UserServerVo> queryUserBySid(Long sId) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select u.id,u.userName,r.name as roleName,u.realName from ");
+		sql.append(" TB_SERVER_USERSERVER us,tb_server_user u,tb_server_role r  ");
+		sql.append(" where us.userid=u.id ");
+		sql.append(" and u.rid=r.id  ");
+		sql.append(" and us.sid=? ");
+		return this.queryForListBean(sql.toString(), UserServerVo.class, sId);
+	}
+
+	@Override
+	public int delUserServer(Long sId, Long userId) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" delete from TB_SERVER_USERSERVER us   ");
+		sql.append(" where us.sid=? ");
+		sql.append(" and us.userid<>? ");
+		return this.saveORUpdate(sql.toString(), sId,userId);
 	}
 
 }

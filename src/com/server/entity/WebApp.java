@@ -19,6 +19,7 @@ public class WebApp {
 	private String tomcatRoot;			//tomcat路径，包括路径，端口
 	private Integer status;				//状态，1：显示 0：删除
 	private Date createDate;			//创建时间
+	private Long createUid;				//创建人id;
 
 	public Long getId() {
 		return id;
@@ -90,6 +91,14 @@ public class WebApp {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+
+	public Long getCreateUid() {
+		return createUid;
+	}
+
+	public void setCreateUid(Long createUid) {
+		this.createUid = createUid;
 	}
 
 }

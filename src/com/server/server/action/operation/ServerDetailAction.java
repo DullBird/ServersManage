@@ -54,14 +54,18 @@ public class ServerDetailAction {
 	/**
 	 * 我的服务器
 	 * @param model
-	 * @param server
 	 * @param pagination
+	 * @param stId		服务器类型
 	 * @return
 	 */
 	@RequestMapping(value = "/myServerList",method={RequestMethod.GET,RequestMethod.POST})
 	public String serverList(Model model,Long stId,Pagination pagination,
 			HttpSession session){
 		model.addAttribute(StaticParam.HEIGHT_LIGHT, "myServerList");
+		//用于回显，基础类型没有保留空的构造方法，因此使用@ModelAttribute回报错
+		model.addAttribute("stId", stId);
+		//查询出所有服务器类型
+		model.addAttribute("serverType",iserverDetailService.queryServerTypeList());
 		//获取seesion的用户信息
 		UserVo sessionUser = UserVo.getSessionUser(session);
 		model.addAttribute(StaticParam.PAGE_BEAN,iserverDetailService.myServerList(1, 12, stId, sessionUser.getId()));

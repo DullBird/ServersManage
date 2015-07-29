@@ -18,6 +18,7 @@ public class Database {
 	private String dbTempTableSpace;	//临时表空间
 	private Integer status;				//状态，1：显示 0：删除
 	private Date createDate;			//创建时间
+	private Long createUid;				//创建人id;
 
 	public Long getId() {
 		return id;
@@ -83,4 +84,12 @@ public class Database {
 		this.createDate = createDate;
 	}
 
+	public Long getCreateUid() {
+		return createUid;
+	}
+
+	public void setCreateUid(Long createUid) {
+		this.createUid = createUid;
+	}
+	
 }

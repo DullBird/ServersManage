@@ -74,6 +74,10 @@ body {
 	color: #777;
 }
 
+.foot span{
+	top: 2px;
+}
+
 .main-right-panel{
 	min-height: 630px;
 }

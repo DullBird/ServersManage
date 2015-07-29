@@ -5,7 +5,9 @@ import java.util.List;
 import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
 import com.server.utils.page.Pagination;
+import com.server.vo.JsonResult;
 import com.server.vo.server.ServerDetailVo;
+import com.server.vo.user.UserVo;
 
 /**
  * 
@@ -52,5 +54,24 @@ public interface IServerDetailService {
 	 * @return
 	 */
 	public Pagination<ServerDetailVo> allServerList(int toPage,int pageSize,Long stId,Integer status);
+	
+	/**
+	 * 根据服务器id查询出服务器详情信息
+	 * @param id		服务器id
+	 * @param userId	用户id
+	 * @param status	状态（1：运维人员和观察查询；null或0：管理员查询）
+	 * @return
+	 */
+	public ServerDetailVo serverDetail(Long id,Long userId,Integer status);
+	
+	/**
+	 * 更新服务器基本信息
+	 * @param server		基本信息
+	 * @param stidList		新勾选的服务器类型id
+	 * @param userIdList	新勾选的可管理用户id
+	 * @param sessionUser	session用户
+	 * @return
+	 */
+	public JsonResult updateServer(ServerDetail server,Long[] stidList,Long[] userIdList,UserVo sessionUser);
 
 }

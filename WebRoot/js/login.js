@@ -8,6 +8,8 @@ $(function(){
 	$.validator.setDefaults({
 		submitHandler: function() {
 			var currentForm = $(this.currentForm);
+			var $btn = $(currentForm).find("button[type='submit']");
+			$btn.attr("disabled","disabled");
   			$.ajax({
   				url:base+'/ajaxLogin',
   				type:'POST',
@@ -22,7 +24,14 @@ $(function(){
   						$(currentForm)[0].reset();
   						$("#verifyCodeImg").click();
   					}
-  				}
+  				},
+  				error:function (XMLHttpRequest) {
+  					$.scojs_message("错误代码："+XMLHttpRequest.status, $.scojs_message.TYPE_ERROR);
+				},
+				complete:function(){
+					//解除按钮
+					$btn.removeAttr("disabled");
+				}
   			});
   			return false;
 		},

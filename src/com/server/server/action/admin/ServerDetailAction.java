@@ -32,8 +32,9 @@ public class ServerDetailAction {
 	/**
 	 * 服务器列表
 	 * @param model
-	 * @param server
 	 * @param pagination
+	 * @param stId		服务器类型
+	 * @param status	服务器状态
 	 * @return
 	 */
 	@RequestMapping(value = "/allServerList",method={RequestMethod.GET,RequestMethod.POST})

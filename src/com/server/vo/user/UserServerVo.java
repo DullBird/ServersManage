@@ -12,6 +12,8 @@ import com.server.entity.UserServer;
 public class UserServerVo extends UserServer {
 	
 	private String userName;	//用户名
+	private String roleName;	//角色名
+	private String realName;	//真实姓名
 
 	public String getUserName() {
 		return userName;
@@ -19,6 +21,22 @@ public class UserServerVo extends UserServer {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 	
 }

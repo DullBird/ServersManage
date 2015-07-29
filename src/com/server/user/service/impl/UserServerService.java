@@ -1,11 +1,15 @@
 package com.server.user.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.server.user.dao.IUserServerDao;
 import com.server.user.service.IUserServerService;
+import com.server.vo.user.UserServerVo;
+import com.server.vo.user.UserVo;
 
 /**
  * 
@@ -23,6 +27,16 @@ public class UserServerService implements IUserServerService{
 	@Override
 	public int addUserServer(Long userId, Long sId) {
 		return iuserServerDao.addUserServer(userId, sId);
+	}
+
+	@Override
+	public List<UserServerVo> queryUserBySid(Long sId) {
+		return iuserServerDao.queryUserBySid(sId);
+	}
+
+	@Override
+	public int delUserServer(Long sId, Long userId) {
+		return iuserServerDao.delUserServer(sId, userId);
 	}
 
 }

@@ -7,6 +7,7 @@
     <script type="text/javascript" src="${base}/js/sco.js/js/sco.message.js"></script>
     <script type="text/javascript" src="${base}/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="${base}/js/server/addServer.js"></script>
+    <link rel="stylesheet" href="${base}/css/server.css" />
   </head>
   <body>
   	<div class="panel panel-default ">
@@ -114,7 +115,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">协助人员</label>
+					<label class="col-sm-2 control-label">可管理人员</label>
 				    <div class="col-sm-9">
 				      <div style="padding-top: 0px;padding-bottom: 5px;" class="checkbox">
 				      	<label class="checkbox-inline">
@@ -142,5 +143,6 @@
 				 </div>
 		  	</form>
 		 </div>
+	</div>
   </body>
 </html>

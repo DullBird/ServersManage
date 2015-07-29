@@ -54,7 +54,7 @@
 		    </div>
 		    <div class="form-group">
 		    	<div class="form-group-indiv">
-  					<button type="submit" class="btn btn-primary btn-lg login-btn">登录</button>
+  					<button type="submit" onfocus="this.blur();" class="btn btn-primary btn-lg login-btn">登录</button>
   				</div>
 		    </div>
   		</form>
