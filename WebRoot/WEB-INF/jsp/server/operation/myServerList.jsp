@@ -1,11 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 	<head>
 		<title>我的服务器</title>
 		<link rel="stylesheet" href="${base}/css/server.css" />
-		<script type="text/javascript" src="${base}/js/server/myServerList.js"></script>
+		<script type="text/javascript" src="${base}/js/server/operation/myServerList.js"></script>
+		<script type="text/javascript" src="${base}/js/server/server.js"></script>
 	</head>
 	<body>
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -77,6 +77,7 @@
 			  				服务器详情
 			  				<a style="text-decoration: none;" href="javascript:void(0);" class="server-detail-return pull-right" ><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> 返回</a>
 			  			</div>
+			  			<div class="panel-myServer-detail"></div>
 			  		</div>
 			  	</div>
 			  	<div class="item myServer-detail-update">

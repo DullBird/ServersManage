@@ -1,8 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script type="text/javascript" src="${base}/js/server/updateServer.js"></script>
+<script type="text/javascript" src="${base}/js/server/operation/updateServer.js"></script>
 <form id="updateForm" method="post" class="form-horizontal">
 	<input type="hidden" value="${server.id}" id="update-sId" />
+	<%-- 用于表单提交数据 --%>
 	<input type="hidden" value="${server.id}" name="id" />
 	<div class="form-group">
 		<label class="col-sm-2 control-label">主机名</label>
@@ -67,7 +68,9 @@
 						<input id="${serverType.tableName}" name="stidList"
 						value="${serverType.id}" type="checkbox"
 						<c:forEach var="myServerType" items="${server.serverTypeList}">
-							<c:if test="${myServerType.id==serverType.id}">checked="checked"</c:if>
+							<c:if test="${myServerType.id==serverType.id}">
+								checked="checked" confim="confim"
+							</c:if>
 						</c:forEach>> 
 						${serverType.name}
 					</label>

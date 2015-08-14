@@ -72,8 +72,7 @@ $(function(){
   						$.scojs_message('更新成功', $.scojs_message.TYPE_OK);
   						//重置id，让系统重新加载
   						$("#detail-sId").text("-1");
-  						$("#server-detail-btn-"+$("input[name='id']").val()).click();
-  						//$(".carousel").carousel('prev');
+  						$("#server-detail-btn-"+$("#update-sId").val()).click();
   					}else{
   						$.scojs_message('更新失败，请重新更新，若再次失败请联系相关技术人员', $.scojs_message.TYPE_ERROR);
   					}
@@ -91,5 +90,19 @@ $(function(){
 	    $(error).prepend('<div class="arrow"></div>');
 			$(error).appendTo(element.parent().parent().find(".my-col-sm-4"));
 		}
+	});
+	
+	//服务器类型删除确认框
+	$("input[confim='confim']").each(function(){
+		$(this).click(function(){
+			if(!$(this).is(":checked")){
+				if(confirm("以下操作将会导致失去所有数据，确认要删除吗？")){
+					$(this).removeProp("checked");
+				}else{
+					//复位
+					$(this).prop("checked","checked");
+				}
+			}
+		});
 	});
 });

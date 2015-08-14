@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="${base}/js/sco.js/css/sco.message.css">
     <script type="text/javascript" src="${base}/js/sco.js/js/sco.message.js"></script>
     <script type="text/javascript" src="${base}/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="${base}/js/server/addServer.js"></script>
+    <script type="text/javascript" src="${base}/js/server/operation/addServer.js"></script>
     <link rel="stylesheet" href="${base}/css/server.css" />
   </head>
   <body>
@@ -123,9 +123,12 @@
 				        </label>
 				        <c:forEach var="user" items="${user}">
 				        	<label class="checkbox-inline">
-				          		<input name="userIdList" value="${user.id}" type="checkbox"> ${user.realName}
+				          		<input name="userIdList" 
+				          			<c:if test="${sessionUser.id == user.id}"> checked="checked" disabled="disabled" </c:if> 
+				          			value="${user.id}" type="checkbox"> ${user.realName}
 				        	</label>
 				        </c:forEach>
+				        <input type="hidden" name="userIdList" value="${sessionUser.id}" />
 				      </div>
 				    </div>
 				 </div>

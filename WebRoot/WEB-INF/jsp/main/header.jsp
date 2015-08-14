@@ -19,7 +19,7 @@
 		</c:if>
 		<%-- 观察者导航 --%>
 		<c:if test="${sessionUser.rId == 3}">
-			<li id="myServerList"><a href="${base}/server/operation/myServerList">我的服务器</a></li>
+			<li id="myServerList"><a href="${base}/server/watcher/myServerList">我的服务器</a></li>
 		</c:if>
 		<li id="myInfo"><a href="${base}/user/myInfo">我的信息</a></li>
 		<li id="updatePwd"><a href="${base}/user/updatePwd">修改密码</a></li>

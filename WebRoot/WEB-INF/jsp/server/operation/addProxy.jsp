@@ -21,7 +21,7 @@
 				<div class="form-group">
 				    <label class="col-sm-3 control-label">访问域名</label>
 				    <div class="col-sm-6">
-				      <input name="vhostDomain" id="vhostDomain" type="test" class="form-control" placeholder="*请填写访问的域名">
+				      <input name="vhostDomain" id="vhostDomain" type="text" class="form-control" placeholder="*请填写访问的域名">
 				    </div>
 				    <%-- 表单验证错误信息div --%>
 				    <div class="col-sm-3 my-col-sm-3"></div>
@@ -29,7 +29,7 @@
 				<div class="form-group">
 				    <label class="col-sm-3 control-label">根路径</label>
 				    <div class="col-sm-6">
-				      <input name="vhostRoot" id="vhostRoot" type="test" class="form-control" placeholder="*请填写虚拟主机的根路径">
+				      <input name="vhostRoot" id="vhostRoot" type="text" class="form-control" placeholder="*请填写虚拟主机的根路径">
 				    </div>
 				    <%-- 表单验证错误信息div --%>
 				    <div class="col-sm-3 my-col-sm-3"></div>
@@ -37,7 +37,7 @@
 				<div class="form-group">
 				    <label class="col-sm-3 control-label">日志路径</label>
 				    <div class="col-sm-6">
-				    	<input name="vhostLogs" id="vhostLogs" type="test" class="form-control" placeholder="*请填写日志路径">
+				    	<input name="vhostLogs" id="vhostLogs" type="text" class="form-control" placeholder="*请填写日志路径">
 				    </div>
 				    <%-- 表单验证错误信息div --%>
 				    <div class="col-sm-3 my-col-sm-3"></div>

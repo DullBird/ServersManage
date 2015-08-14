@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
+import com.server.entity.User;
 import com.server.utils.page.Pagination;
 import com.server.vo.JsonResult;
 import com.server.vo.server.ServerDetailVo;
@@ -73,5 +74,13 @@ public interface IServerDetailService {
 	 * @return
 	 */
 	public JsonResult updateServer(ServerDetail server,Long[] stidList,Long[] userIdList,UserVo sessionUser);
+	
+	/**
+	 * 修改服务器的状态为已删除
+	 * @param id			服务器id
+	 * @param createUid		创建人id（出于安全考虑）
+	 * @return
+	 */
+	public JsonResult delServer(Long id,Long createUid);
 
 }

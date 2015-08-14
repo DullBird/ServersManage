@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.server.base.StaticParam;
 import com.server.entity.ServerDetail;
 import com.server.entity.ServerType;
+import com.server.entity.User;
 import com.server.server.dao.IServerDetailDao;
 import com.server.server.service.IServerDetailService;
 import com.server.server.service.IServerRelationService;
@@ -50,11 +51,13 @@ public class ServerDetailService implements IServerDetailService {
 		//添加服务器主体
 		int res = iserverDetailDao.addServer(server);
 		//添加服务器类型关系表
-		for(Long stId:stidList){
-			iserverRelationService.addServerType(server.getId(), stId);
+		if(null != stidList){
+			for(Long stId:stidList){
+				iserverRelationService.addServerType(server.getId(), stId);
+			}
 		}
-		//添加用户服务器关系表
 		for(Long userId:userIdList){
+			//添加用户服务器关系表
 			iuserServerService.addUserServer(userId, server.getId());
 		}
 	}
@@ -103,17 +106,33 @@ public class ServerDetailService implements IServerDetailService {
 	@Override
 	public JsonResult updateServer(ServerDetail server,Long[] stidList,
 			Long[] userIdList,UserVo sessionUser) {
-		//删掉除了自己的所有可管理人员，再更新
-		iuserServerService.delUserServer(server.getId(), sessionUser.getId());
-		if(null != userIdList){
-			for(Long userId:userIdList){
-				iuserServerService.addUserServer(userId, server.getId());
+		//查询出服务器的基本信息
+		List<ServerDetailVo> serverList = iserverDetailDao.queryServerList(1, 2, null, null, 1, server.getId()).getObjLists();
+		if(null != serverList && serverList.size() != 1){
+			return new JsonResult(false, "找不到对应的服务器信息");
+		}
+		ServerDetailVo serverTemp = serverList.get(0);
+		//如果操作用户不等于该服务器的创建用户，不予修改用户服务器关系表
+		if(serverTemp.getCreateUid() == sessionUser.getId()){
+			//删掉除了自己的所有可管理人员，再更新
+			iuserServerService.delUserServer(server.getId(), sessionUser.getId());
+			if(null != userIdList){
+				for(Long userId:userIdList){
+					iuserServerService.addUserServer(userId, server.getId());
+				}
 			}
+			
 		}
 		//更新服务器类型
 		iserverRelationService.updateServerType(server.getId(), stidList);
 		//更新服务器基本信息
 		iserverDetailDao.updateServer(server);
+		return new JsonResult(true);
+	}
+
+	@Override
+	public JsonResult delServer(Long id,Long createUid) {
+		iserverDetailDao.delServer(id,createUid);
 		return new JsonResult(true);
 	}
 	

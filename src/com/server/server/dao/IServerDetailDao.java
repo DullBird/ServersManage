@@ -55,4 +55,12 @@ public interface IServerDetailDao {
 	 */
 	public int updateServer(ServerDetail server);
 	
+	/**
+	 * 修改服务器的状态为已删除
+	 * @param id			服务器id
+	 * @param createUid 	创建人id（出于安全考虑）
+	 * @return
+	 */
+	public int delServer(Long id,Long createUid);
+	
 }

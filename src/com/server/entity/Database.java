@@ -2,6 +2,10 @@ package com.server.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * 数据库服务器实体
  * 
@@ -11,10 +15,15 @@ import java.util.Date;
 public class Database {
 
 	private Long id;					//主键
+	@NotNull
 	private Long sId;					//服务器id
+	@NotEmpty
 	private String dbSid;				//实例名
+	@NotEmpty
 	private String dbUser;				//数据库用户
+	@NotEmpty
 	private String dbTableSpace;		//表空间
+	@NotEmpty
 	private String dbTempTableSpace;	//临时表空间
 	private Integer status;				//状态，1：显示 0：删除
 	private Date createDate;			//创建时间

@@ -40,17 +40,17 @@ public class ServerRelationService implements IServerRelationService {
 	}
 
 	@Override
-	public int addProxy(Proxy proxy,Long userId) {
+	public Proxy addProxy(Proxy proxy,Long userId) {
 		return iserverRelationDao.addProxy(proxy,userId);
 	}
 
 	@Override
-	public int addWebApp(WebApp webApp,Long userId) {
+	public WebApp addWebApp(WebApp webApp,Long userId) {
 		return iserverRelationDao.addWebApp(webApp,userId);
 	}
 
 	@Override
-	public int addDatabase(Database database,Long userId) {
+	public Database addDatabase(Database database,Long userId) {
 		return iserverRelationDao.addDatabase(database,userId);
 	}
 
@@ -107,7 +107,6 @@ public class ServerRelationService implements IServerRelationService {
 		if(null != stidList){
 			for(int i=0;i<stidList.length;i++){
 				for(int j=0;j<serverTypeList.size();j++){
-					System.out.println("原来有的id："+serverTypeList.get(j).getId()+"===>提交的id："+stidList[i]);
 					if(serverTypeList.get(j).getId().equals(stidList[i])){
 						serverTypeList.remove(j);
 						stidList[i] = -1l;
@@ -140,6 +139,36 @@ public class ServerRelationService implements IServerRelationService {
 	@Override
 	public int delServerType(Long sId, Long stId) {
 		return iserverRelationDao.delServerType(sId, stId);
+	}
+
+	@Override
+	public Proxy findProxy(Long id) {
+		return iserverRelationDao.findProxy(id);
+	}
+
+	@Override
+	public WebApp findWebApp(Long id) {
+		return iserverRelationDao.findWebApp(id);
+	}
+
+	@Override
+	public Database findDatabase(Long id) {
+		return iserverRelationDao.findDatabase(id);
+	}
+
+	@Override
+	public int updateProxy(Proxy proxy) {
+		return iserverRelationDao.updateProxy(proxy);
+	}
+
+	@Override
+	public int updateWebApp(WebApp webApp) {
+		return iserverRelationDao.updateWebApp(webApp);
+	}
+
+	@Override
+	public int updateDatabase(Database database) {
+		return iserverRelationDao.updateDatabase(database);
 	}
 
 }

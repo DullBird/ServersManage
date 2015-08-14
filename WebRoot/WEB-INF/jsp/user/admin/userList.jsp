@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>用户列表</title>
-		<script src="${base}/js/user/userDetail.js"></script>
+		<script src="${base}/js/user/admin/userDetail.js"></script>
 	</head>
 	<body>
 		<div class="panel panel-default">

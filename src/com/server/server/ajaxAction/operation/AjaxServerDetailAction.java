@@ -1,18 +1,20 @@
 package com.server.server.ajaxAction.operation;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.server.entity.Database;
 import com.server.entity.Proxy;
 import com.server.entity.ServerDetail;
+import com.server.entity.WebApp;
 import com.server.server.service.IServerDetailService;
 import com.server.server.service.IServerRelationService;
 import com.server.user.service.IUserService;
@@ -111,6 +113,19 @@ public class AjaxServerDetailAction {
 	}
 	
 	/**
+	 * 删除服务器
+	 * @param sId 	服务器id
+	 * @return
+	 */
+	@RequestMapping(value = "/delServer",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult delServer(Long sId,HttpSession session){
+		//获取seesion的用户信息
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		return iserverDetailService.delServer(sId,sessionUser.getId());
+	}
+	
+	/**
 	 * 添加代理服务器
 	 * @param proxy
 	 * @param session
@@ -118,10 +133,140 @@ public class AjaxServerDetailAction {
 	 */
 	@RequestMapping(value = "/addProxy",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult addProxy(Proxy proxy,HttpSession session){
+	public JsonResult<Proxy> addProxy(@Valid Proxy proxy,HttpSession session
+			,BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<Proxy>(false,"错误的参数");
+		}
 		//获取seesion的用户信息
 		UserVo sessionUser = UserVo.getSessionUser(session);
-		iserverRelationService.addProxy(proxy,sessionUser.getId());
+		proxy = iserverRelationService.addProxy(proxy,sessionUser.getId());
+		return new JsonResult<Proxy>(true, proxy);
+	}
+	
+	/**
+	 * 删除代理服务器
+	 * @param proxy
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/delProxy",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult delProxy(Proxy proxy){
+		iserverRelationService.delProxyById(proxy.getId());
 		return new JsonResult(true);
 	}
+	
+	/**
+	 * 编辑代理服务器
+	 * @param proxy
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/editProxy",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult<Proxy> editProxy(@Valid Proxy proxy,BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<Proxy>(false,"错误的参数");
+		}
+		iserverRelationService.updateProxy(proxy);
+		return new JsonResult<Proxy>(true,proxy);
+	}
+	
+	/**
+	 * 添加应用服务器
+	 * @param webApp
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/addWebApp",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult<WebApp> addWebApp(@Valid WebApp webApp,HttpSession session
+			,BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<WebApp>(false,"错误的参数");
+		}
+		//获取seesion的用户信息
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		webApp = iserverRelationService.addWebApp(webApp, sessionUser.getId());
+		return new JsonResult<WebApp>(true, webApp);
+	}
+	
+	/**
+	 * 删除应用服务器
+	 * @param webApp
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/delWebApp",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult delWebApp(WebApp webApp){
+		iserverRelationService.delWebAppById(webApp.getId());
+		return new JsonResult(true);
+	}
+	
+	/**
+	 * 编辑应用服务器
+	 * @param webApp
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/editWebApp",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult<WebApp> editWebApp(@Valid WebApp webApp,BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<WebApp>(false,"错误的参数");
+		}
+		iserverRelationService.updateWebApp(webApp);
+		return new JsonResult<WebApp>(true,webApp);
+	}
+	
+	/**
+	 * 添加数据库服务器
+	 * @param database
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/addDatabase",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult<Database> addDatabase(@Valid Database database,HttpSession session
+			,BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<Database>(false,"错误的参数");
+		}
+		//获取seesion的用户信息
+		UserVo sessionUser = UserVo.getSessionUser(session);
+		database = iserverRelationService.addDatabase(database, sessionUser.getId());
+		return new JsonResult<Database>(true, database);
+	}
+	
+	/**
+	 * 删除数据库服务器
+	 * @param database
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/delDatabase",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult delDatabase(Database database){
+		iserverRelationService.delDatabaseById(database.getId());
+		return new JsonResult(true);
+	}
+	
+	/**
+	 * 编辑数据库服务器
+	 * @param database
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/editDatabase",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult<Database> editDatabase(@Valid Database database,BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<Database>(false,"错误的参数");
+		}
+		iserverRelationService.updateDatabase(database);
+		return new JsonResult<Database>(true,database);
+	}
+	
 }

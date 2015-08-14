@@ -3,3 +3,5 @@
 .server-detail-type-add{text-align: center;}
 .server-detail-type-add a{text-decoration: none;}
 .server-detail-type-add a span{top:2px;}
+.no-text-decoration:hover{text-decoration: none;}
+.serverTable,.proxyTable,.webAppTable,.databaseTable{margin-bottom: 0px;}

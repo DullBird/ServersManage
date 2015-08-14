@@ -53,7 +53,7 @@ public interface IServerRelationService {
 	 * @param userId
 	 * @return
 	 */
-	public int addProxy(Proxy proxy,Long userId);
+	public Proxy addProxy(Proxy proxy,Long userId);
 	
 	/**
 	 * 根据id删除代理服务器
@@ -75,7 +75,7 @@ public interface IServerRelationService {
 	 * @param userId
 	 * @return
 	 */
-	public int addWebApp(WebApp webApp,Long userId);
+	public WebApp addWebApp(WebApp webApp,Long userId);
 	
 	/**
 	 * 根据id删除应用服务器
@@ -97,7 +97,7 @@ public interface IServerRelationService {
 	 * @param userId
 	 * @return
 	 */
-	public int addDatabase(Database database,Long userId);
+	public Database addDatabase(Database database,Long userId);
 	
 	/**
 	 * 根据id删除数据库服务器
@@ -136,5 +136,47 @@ public interface IServerRelationService {
 	 * @return
 	 */
 	public List<Database> queryDatabase(Long sId,Integer status);
+	
+	/**
+	 * 根据id查询出代理服务器详情
+	 * @param id
+	 * @return
+	 */
+	public Proxy findProxy(Long id);
+	
+	/**
+	 * 根据id查询出应用服务器详情
+	 * @param id
+	 * @return
+	 */
+	public WebApp findWebApp(Long id);
+	
+	/**
+	 * 根据id查询出数据库服务器详情
+	 * @param id
+	 * @return
+	 */
+	public Database findDatabase(Long id);
+	
+	/**
+	 * 根据id修改对应的代理服务器
+	 * @param proxy
+	 * @return
+	 */
+	public int updateProxy(Proxy proxy);
+	
+	/**
+	 * 根据id修改对应的应用服务器
+	 * @param proxy
+	 * @return
+	 */
+	public int updateWebApp(WebApp webApp);
+	
+	/**
+	 * 根据id修改对应的数据库服务器
+	 * @param proxy
+	 * @return
+	 */
+	public int updateDatabase(Database database);
 	
 }

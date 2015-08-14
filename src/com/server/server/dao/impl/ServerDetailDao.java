@@ -109,4 +109,13 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 				server.getPostDeviceCode(),server.getId());
 	}
 
+	@Override
+	public int delServer(Long id,Long createUid) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update TB_SERVER_SERVERDETAIL sd set sd.status=0  ");
+		sql.append(" where sd.id=? ");
+		sql.append(" and sd.createuid=? ");
+		return this.saveORUpdate(sql.toString(), id,createUid);
+	}
+
 }

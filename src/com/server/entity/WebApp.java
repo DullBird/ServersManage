@@ -2,6 +2,10 @@ package com.server.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * 应用服务器实体
  * 
@@ -11,11 +15,17 @@ import java.util.Date;
 public class WebApp {
 
 	private Long id;					//主键
+	@NotNull
 	private Long sId;					//服务器id
+	@NotEmpty
 	private String appName;				//应用名
+	@NotEmpty
 	private String appRoot;				//应用根路径
+	@NotEmpty
 	private String appUrl;				//应用访问路径
+	@NotEmpty
 	private String appDatasource;		//应用数据源，包括主机ip，端口，sid
+	@NotEmpty
 	private String tomcatRoot;			//tomcat路径，包括路径，端口
 	private Integer status;				//状态，1：显示 0：删除
 	private Date createDate;			//创建时间

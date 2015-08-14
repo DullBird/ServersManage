@@ -16,7 +16,15 @@
    <context:component-scan base-package="com.server.*.ajaxAction" />
    
    <!-- 注册mvc驱动 -->
-   <mvc:annotation-driven />
+   <mvc:annotation-driven>
+   		<mvc:message-converters>  
+            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+                <property name="objectMapper" ref="customObjectMapper"></property>  
+            </bean>  
+        </mvc:message-converters>  
+   </mvc:annotation-driven>
+   
+   <bean id="customObjectMapper" class="com.server.base.CustomObjectMapper"></bean>  
    
    <!-- <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
