@@ -1,6 +1,8 @@
 package com.server.utils.filter;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,6 +12,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.server.utils.EncodeFilter;
+import com.sun.xml.internal.bind.v2.runtime.output.Encoded;
 
 /*******************************************************************************
  * 系统全局过滤器
@@ -44,7 +49,7 @@ public class PermissionFilter implements Filter {
 	public void doFilter(ServletRequest srequest, ServletResponse sresponse,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) srequest;
-		HttpServletResponse response = (HttpServletResponse) sresponse;
+		//HttpServletResponse response = (HttpServletResponse) sresponse;
 		/*------项目路径----------*/
 		String base = request.getContextPath();
 		request.setAttribute("base", request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+base);

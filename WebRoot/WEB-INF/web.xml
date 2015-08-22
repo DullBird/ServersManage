@@ -38,6 +38,10 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+	<!-- session监听器 -->
+	<listener>
+		<listener-class>com.server.utils.listener.OnlineUserListener</listener-class>
+	</listener>
 	
 	<!-- 过滤器 -->
 	
@@ -64,9 +68,18 @@
 		<filter-name>permissionFilter</filter-name>
 		<filter-class>com.server.utils.filter.PermissionFilter</filter-class>
 	</filter>
+	<!-- XSS过滤器 -->
+	<filter>
+		<filter-name>xssFilter</filter-name>
+		<filter-class>com.server.utils.filter.XSSFilter</filter-class>
+	</filter>
 	
 	<filter-mapping>
 		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>xssFilter</filter-name>
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
@@ -113,10 +126,10 @@
 		<servlet-name>springMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<!-- 设置session超时时间30分钟 -->
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
-	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

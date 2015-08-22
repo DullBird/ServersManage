@@ -5,3 +5,6 @@
 .server-detail-type-add a span{top:2px;}
 .no-text-decoration:hover{text-decoration: none;}
 .serverTable,.proxyTable,.webAppTable,.databaseTable{margin-bottom: 0px;}
+.update-Server-CreateUser{margin-left: 5px;}
+#operationListForm{margin-left: 15px;}
+#operationListForm button{margin-top: 15px;}

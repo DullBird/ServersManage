@@ -14,6 +14,7 @@ import com.server.server.dao.IServerDetailDao;
 import com.server.server.service.IServerDetailService;
 import com.server.server.service.IServerRelationService;
 import com.server.user.service.IUserServerService;
+import com.server.user.service.IUserService;
 import com.server.utils.page.Pagination;
 import com.server.vo.JsonResult;
 import com.server.vo.server.ServerDetailVo;
@@ -39,6 +40,9 @@ public class ServerDetailService implements IServerDetailService {
 	
 	@Resource(name = "user.service.UserServerService")
 	private IUserServerService iuserServerService;
+	
+	@Resource(name = "user.service.UserService")
+	private IUserService iuserService;
 
 	@Override
 	public List<ServerType> queryServerTypeList() {
@@ -133,6 +137,25 @@ public class ServerDetailService implements IServerDetailService {
 	@Override
 	public JsonResult delServer(Long id,Long createUid) {
 		iserverDetailDao.delServer(id,createUid);
+		return new JsonResult(true);
+	}
+
+	@Override
+	public JsonResult updateServerCreateUser(Long sId, Long userId) {
+		List<UserServerVo> userServerList = iuserServerService.queryOperationBySid(sId);
+		UserServerVo userServerVo = null;
+		//处于安全考虑，遍历查询该userId是否页面选择的值
+		for(UserServerVo temp:userServerList){
+			if(temp.getId().equals(userId)){
+				userServerVo = temp;
+				break;
+			}
+		}
+		//如果为空，不存在
+		if(null == userServerVo){
+			return new JsonResult(false,"无效的运维人员");
+		}
+		iserverDetailDao.updateServerCreateUser(sId, userServerVo.getId(), userServerVo.getRealName());
 		return new JsonResult(true);
 	}
 	

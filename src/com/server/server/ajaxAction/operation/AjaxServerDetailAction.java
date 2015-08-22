@@ -1,9 +1,15 @@
 package com.server.server.ajaxAction.operation;
 
+import java.util.List;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,8 +23,11 @@ import com.server.entity.ServerDetail;
 import com.server.entity.WebApp;
 import com.server.server.service.IServerDetailService;
 import com.server.server.service.IServerRelationService;
+import com.server.user.service.IUserServerService;
 import com.server.user.service.IUserService;
 import com.server.vo.JsonResult;
+import com.server.vo.server.ServerCreateUserVo;
+import com.server.vo.user.UserServerVo;
 import com.server.vo.user.UserVo;
 
 /**
@@ -37,6 +46,9 @@ public class AjaxServerDetailAction {
 	
 	@Resource(name = "user.service.UserService")
 	private IUserService iuserService;
+	
+	@Resource(name = "user.service.UserServerService")
+	private IUserServerService iuserServerService;
 	
 	@Resource(name = "server.service.ServerRelationService")
 	private IServerRelationService iserverRelationService;
@@ -106,7 +118,7 @@ public class AjaxServerDetailAction {
 	@RequestMapping(value = "/update",method={RequestMethod.POST})
 	@ResponseBody
 	public JsonResult update(ServerDetail server,Long[] stidList,
-			Long[] userIdList,HttpSession session){
+			Long[] userIdList,HttpSession session,HttpServletRequest request){
 		//获取seesion的用户信息
 		UserVo sessionUser = UserVo.getSessionUser(session);
 		return iserverDetailService.updateServer(server, stidList, userIdList, sessionUser);
@@ -123,6 +135,33 @@ public class AjaxServerDetailAction {
 		//获取seesion的用户信息
 		UserVo sessionUser = UserVo.getSessionUser(session);
 		return iserverDetailService.delServer(sId,sessionUser.getId());
+	}
+	
+	/**
+	 * 查询出可以转让的所有运维人员
+	 * @return
+	 */
+	@RequestMapping(value = "/operationList",method={RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public JsonResult<List<UserServerVo>> operationList(Long sId){
+		return new JsonResult<List<UserServerVo>>(true,iuserServerService.queryOperationBySid(sId));
+	}
+	
+	/**
+	 * 转让服务器属主
+	 * @param id		服务器id
+	 * @param userId	用户id
+	 * @param realName	用户真实姓名
+	 * @return
+	 */
+	@RequestMapping(value = "/updateCreateUser",method={RequestMethod.POST})
+	@ResponseBody
+	public JsonResult updateCreateUser(@Valid ServerCreateUserVo server,
+			BindingResult br){
+		if(br.hasErrors()){
+			return new JsonResult<Proxy>(false,"错误的参数");
+		}
+		return iserverDetailService.updateServerCreateUser(server.getsId(), server.getUserId());
 	}
 	
 	/**

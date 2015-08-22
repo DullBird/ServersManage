@@ -31,12 +31,17 @@ public class UserServerService implements IUserServerService{
 
 	@Override
 	public List<UserServerVo> queryUserBySid(Long sId) {
-		return iuserServerDao.queryUserBySid(sId);
+		return iuserServerDao.queryUserBySid(sId,null);
 	}
 
 	@Override
 	public int delUserServer(Long sId, Long userId) {
 		return iuserServerDao.delUserServer(sId, userId);
+	}
+
+	@Override
+	public List<UserServerVo> queryOperationBySid(Long sId) {
+		return iuserServerDao.queryUserBySid(sId,2l);
 	}
 
 }

@@ -56,6 +56,15 @@ public interface IServerDetailDao {
 	public int updateServer(ServerDetail server);
 	
 	/**
+	 * 更改服务器的创建人id和创建人
+	 * @param id
+	 * @param userId
+	 * @param realName
+	 * @return
+	 */
+	public int updateServerCreateUser(Long id,Long userId,String realName);
+	
+	/**
 	 * 修改服务器的状态为已删除
 	 * @param id			服务器id
 	 * @param createUid 	创建人id（出于安全考虑）

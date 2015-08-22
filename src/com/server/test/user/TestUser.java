@@ -50,5 +50,11 @@ public class TestUser extends BaseTest {
 		System.out.println(iuserService.updateTel("sssssss", 2l));
 		//System.out.println(iuserService.updateUser("", "123", 2l));
 	}
+	
+	@Test
+	public void resetPwd(){
+		iuserService.updatePwd("123456", 62l);
+		//iuserService.updatePwd("dg11185", "123", 62l);
+	}
 
 }

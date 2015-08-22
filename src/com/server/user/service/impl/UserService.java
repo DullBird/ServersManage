@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
+import com.google.code.kaptcha.Constants;
+import com.server.base.StaticParam;
 import com.server.entity.Role;
 import com.server.entity.User;
 import com.server.user.dao.IUserDao;
 import com.server.user.service.IUserService;
 import com.server.utils.EncryptUitls;
-import com.server.utils.StrUtils;
 import com.server.utils.page.Pagination;
 import com.server.vo.JsonResult;
+import com.server.vo.user.LoginUserVo;
 import com.server.vo.user.UserVo;
 
 /**
@@ -113,5 +116,41 @@ public class UserService implements IUserService {
 		}
 		return null;
 	}
-	
+
+	@Override
+	public JsonResult login(LoginUserVo loginUser, HttpSession session) {
+		boolean isSuccess = false;
+		//判断验证码是否正确
+		String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		if(!code.equals(loginUser.getVerifyCode())){
+			return new JsonResult(isSuccess,"验证码错误");
+		}
+		//判断用户是否存在和密码是否正确
+		UserVo user = this.queryUserByUserName(loginUser.getUserName());
+		if(null == user){
+			//用户不存在，也提示用户名或密码错误
+			return new JsonResult(isSuccess,"用户名或密码错误");
+		}
+		if(!EncryptUitls.MD5Digest(loginUser.getPassWord()).equals(user.getPassWord())){
+			//密码错误
+			return new JsonResult(isSuccess,"用户名或密码错误");
+		}
+		//验证通过，保存用户信息到session，并返回成功
+		isSuccess = true;
+		UserVo sessionUser = new UserVo();
+		sessionUser.setId(user.getId());
+		sessionUser.setUserName(user.getUserName());
+		sessionUser.setRealName(user.getRealName());
+		sessionUser.setTel(user.getTel());
+		sessionUser.setrId(user.getrId());
+		sessionUser.setRoleName(user.getRoleName());
+		session.setAttribute(StaticParam.SESSION_USER, sessionUser);
+		return new JsonResult(isSuccess,null);
+	}
+
+	@Override
+	public void logout(HttpSession session) {
+		session.removeAttribute(StaticParam.SESSION_USER);
+	}
+
 }

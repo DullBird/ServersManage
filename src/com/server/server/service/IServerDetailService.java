@@ -76,6 +76,15 @@ public interface IServerDetailService {
 	public JsonResult updateServer(ServerDetail server,Long[] stidList,Long[] userIdList,UserVo sessionUser);
 	
 	/**
+	 * 转让服务器的属主（更新创建人）
+	 * @param sId
+	 * @param userId
+	 * @param realName
+	 * @return
+	 */
+	public JsonResult updateServerCreateUser(Long sId,Long userId);
+	
+	/**
 	 * 修改服务器的状态为已删除
 	 * @param id			服务器id
 	 * @param createUid		创建人id（出于安全考虑）

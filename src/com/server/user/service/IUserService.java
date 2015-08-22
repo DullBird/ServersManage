@@ -2,10 +2,13 @@ package com.server.user.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.server.entity.Role;
 import com.server.entity.User;
 import com.server.utils.page.Pagination;
 import com.server.vo.JsonResult;
+import com.server.vo.user.LoginUserVo;
 import com.server.vo.user.UserVo;
 
 /**
@@ -111,5 +114,19 @@ public interface IUserService {
 	 * @return
 	 */
 	public List<UserVo> queryAddServerUser();
+	
+	/**
+	 * 用户登录
+	 * @param loginUser
+	 * @param session
+	 * @return
+	 */
+	public JsonResult login(LoginUserVo loginUser,HttpSession session);
+	
+	/**
+	 * 用户登出
+	 * @param session
+	 */
+	public void logout(HttpSession session);
 	
 }

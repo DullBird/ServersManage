@@ -21,6 +21,9 @@
 					$.scojs_message(date.errorMsg, $.scojs_message.TYPE_ERROR);
 				}
 				//$("#resetPwd-btn").removeAttr("contenteditable");
+			},
+			error:function (XMLHttpRequest) {
+				$.scojs_message("错误代码："+XMLHttpRequest.status, $.scojs_message.TYPE_ERROR);
 			}
 		});
 	}
@@ -39,6 +42,9 @@
 				}else{
 					$.scojs_message(date.errorMsg, $.scojs_message.TYPE_ERROR);
 				}
+			},
+			error:function (XMLHttpRequest) {
+				$.scojs_message("错误代码："+XMLHttpRequest.status, $.scojs_message.TYPE_ERROR);
 			}
 		});
 	}
@@ -75,7 +81,9 @@
   				<th>创建时间</th><td>${user.createDate}</td>
   				<th>重置密码</th>
   				<td>
-  					<a id="resetPwd-btn" href="javascript:resetPwd(${user.id});">重置</a>
+  					<c:if test="${user.status==1}">
+  						<a id="resetPwd-btn" href="javascript:resetPwd(${user.id});">重置</a>
+  					</c:if>
   				</td>
   			</tr>
   		</tbody>

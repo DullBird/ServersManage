@@ -44,7 +44,14 @@
 			<th>录入人ID</th>
 			<td>${server.createUid}</td>
 			<th>录入人</th>
-			<td>${server.createUser}</td>
+			<td>
+				${server.createUser}
+				<c:if test="${server.createUid == sessionUser.id}">
+					<a class="update-Server-CreateUser" title="更改" onfocus="this.blur();" href="javascript:void(0);">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</a>
+				</c:if>
+			</td>
 		</tr>
 		<tr>
 			<th>ip</th>
@@ -262,3 +269,4 @@
 <c:import url="../webAppInfo.jsp" />
 <c:import url="addDatabase.jsp" />
 <c:import url="editDatabase.jsp" />
+<c:import url="operationList.jsp" />

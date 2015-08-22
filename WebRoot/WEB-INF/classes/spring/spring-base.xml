@@ -22,6 +22,9 @@
     <!-- 加载property文件 -->
     <context:property-placeholder location="classpath:dataSource.properties"/>
     
+    <!-- 自动代理 -->
+    <aop:aspectj-autoproxy />
+    
     <!-- spring jdbc 模板类 -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
@@ -84,9 +87,17 @@
      
 	<!-- jdbc事务aop -->
     <aop:config>
-		<aop:pointcut expression="execution(* com.server.*.service..*(..))"
-			id="busPointcut" />
+		<aop:pointcut expression="execution(* com.server.*.service..*(..))" 
+		id="busPointcut" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="busPointcut" />
+		<!-- <aop:aspect ref="log.service.LogService">
+			<aop:pointcut id="addUser" expression="execution(* com.server.user.service.*.addUser(..))" />
+			<aop:after method="addUser" pointcut-ref="addUser"/>
+			<aop:pointcut id="delUser" expression="execution(* com.server.user.service.*.deleteUser(..))" />
+			<aop:after method="delUser" pointcut-ref="delUser"/>
+			<aop:pointcut id="resetPwd" expression="execution(* com.server.user.service.*.updatePwd(String,Long))" />
+			<aop:after method="resetPwd" pointcut-ref="resetPwd"/>
+		</aop:aspect> -->
 	</aop:config>
 	
 </beans>

@@ -1,7 +1,8 @@
 $(function(){
 	$('.carousel').carousel({
-		//初始化，不自动轮播
-		interval: false
+		//初始化
+		interval: false,	//不自动播放
+		keyboard: false		//禁止键盘
 	});
 	
 	//返回按钮
@@ -223,6 +224,33 @@ $(function(){
 					}
 				},error:function (XMLHttpRequest) {
 					$.scojs_message("错误代码："+XMLHttpRequest.status, $.scojs_message.TYPE_ERROR);
+			}
+		});
+	});
+	
+	//更换创建人的按钮
+	$("body").on("click",".update-Server-CreateUser",function(){
+		$.ajax({
+			url:base+'/server/ajax/operation/operationList',
+			data:"sId="+$("#detail-sId").text(),
+			type:'POST',
+			success:function(date){
+				var $radio = $("#operationListForm").find(".radio");
+				if(date.success){
+					var operationLis = date.resultData;
+					var appendHtml = '';
+					for(var i=0;i<operationLis.length;i++){
+						appendHtml += '<div class="radio"><label><input type="radio" name="userId" value="'+ operationLis[i].id +'" />'+ operationLis[i].realName +'</label></div>';
+					}
+					$radio.empty();
+					$radio.append(appendHtml);
+					//显示编辑代理服务器的表单弹出框
+					$("#operationListModal").modal("show");
+				}
+				
+			},
+			error:function (XMLHttpRequest) {
+				$.scojs_message("错误代码："+XMLHttpRequest.status, $.scojs_message.TYPE_ERROR);
 			}
 		});
 	});

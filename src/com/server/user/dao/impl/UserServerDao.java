@@ -1,5 +1,6 @@
 package com.server.user.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -30,14 +31,20 @@ public class UserServerDao extends BaseDao implements IUserServerDao {
 	}
 
 	@Override
-	public List<UserServerVo> queryUserBySid(Long sId) {
+	public List<UserServerVo> queryUserBySid(Long sId,Long rId) {
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select u.id,u.userName,r.name as roleName,u.realName from ");
 		sql.append(" TB_SERVER_USERSERVER us,tb_server_user u,tb_server_role r  ");
 		sql.append(" where us.userid=u.id ");
 		sql.append(" and u.rid=r.id  ");
 		sql.append(" and us.sid=? ");
-		return this.queryForListBean(sql.toString(), UserServerVo.class, sId);
+		List<Object> params = new ArrayList<Object>();
+		params.add(sId);
+		if(null != rId){
+			sql.append(" and u.rid=? ");
+			params.add(rId);
+		}
+		return this.queryForListBean(sql.toString(), UserServerVo.class, params.toArray());
 	}
 
 	@Override

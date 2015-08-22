@@ -26,9 +26,10 @@ public interface IUserServerDao {
 	/**
 	 * 根据服务器id查询出能管理该服务器的用户信息
 	 * @param sId
+	 * @param rId	可选，角色id
 	 * @return
 	 */
-	public List<UserServerVo> queryUserBySid(Long sId);
+	public List<UserServerVo> queryUserBySid(Long sId,Long rId);
 	
 	/**
 	 * 删除该服务器的可管理人员，除了操作人id

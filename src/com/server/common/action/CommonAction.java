@@ -34,7 +34,7 @@ public class CommonAction {
 	
 	@Resource(name = "user.service.UserService")
 	private IUserService userService;
-
+	
 	@Resource(name = "captchaProducer")
 	private Producer captchaProducer;		//验证码生成器
 
@@ -54,7 +54,7 @@ public class CommonAction {
 	 */
 	@RequestMapping(value = "/logout", method = { RequestMethod.GET})
 	public String logout(HttpSession session){
-		session.removeAttribute(StaticParam.SESSION_USER);
+		userService.logout(session);
 		return "redirect:/login";
 	}
 

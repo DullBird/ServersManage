@@ -118,4 +118,13 @@ public class ServerDetailDao extends BaseDao implements IServerDetailDao {
 		return this.saveORUpdate(sql.toString(), id,createUid);
 	}
 
+	@Override
+	public int updateServerCreateUser(Long id, Long userId, String realName) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update TB_SERVER_SERVERDETAIL sd set  ");
+		sql.append(" sd.createuid=?,sd.createuser=? ");
+		sql.append(" where sd.id=? ");
+		return this.saveORUpdate(sql.toString(), userId,realName,id);
+	}
+
 }

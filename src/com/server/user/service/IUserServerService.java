@@ -36,5 +36,12 @@ public interface IUserServerService {
 	 * @return
 	 */
 	public int delUserServer(Long sId,Long userId);
+	
+	/**
+	 * 根据服务器id查询出能管理该服务器的运维人员
+	 * @param sId
+	 * @return
+	 */
+	public List<UserServerVo> queryOperationBySid(Long sId);
 
 }

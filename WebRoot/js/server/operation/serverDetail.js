@@ -349,4 +349,33 @@ $(function(){
 		}
 	});
 	
+	$("#operationListForm").submit(function(){
+		var userId=$(this).find('input:radio[name="userId"]:checked').val();
+		if(userId == undefined || userId == ""){
+			alert("请选择一个要更换的运维人员");
+		}else{
+			$.ajax({
+  				url:base+'/server/ajax/operation/updateCreateUser',
+  				type:'POST',
+  				data:$(this).serialize(),
+  				success:function(date){
+  					if(date.success){
+  						$("#operationListModal").modal("hide");
+  						var sId = $("#detail-sId").text();
+  						//重置id，让系统重新加载
+  						$("#detail-sId").text("-1");
+  						$("#update-sId").val("-1");
+  						$("#server-detail-btn-"+sId).click();
+  						$.scojs_message('更改成功', $.scojs_message.TYPE_OK);
+  					}else{
+  						$.scojs_message(date.errorMsg, $.scojs_message.TYPE_ERROR);
+  					}
+  				},error:function (XMLHttpRequest) {
+  					$.scojs_message("错误代码："+XMLHttpRequest.status, $.scojs_message.TYPE_ERROR);
+				}
+  			});
+		}
+		return false;
+	});
+	
 });

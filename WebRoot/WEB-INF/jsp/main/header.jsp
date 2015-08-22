@@ -10,6 +10,7 @@
 		<c:if test="${sessionUser.rId == 1}">
 			<li id="addUser"><a href="${base}/user/admin/addUser">添加用户</a></li>
 			<li id="userList"><a href="${base}/user/admin/userList">用户列表</a></li>
+			<li id="onlineUserList"><a href="${base}/user/admin/onlineUserList">在线用户</a></li>
 			<li id="allServerList"><a href="${base}/server/admin/allServerList">服务器列表</a></li>
 		</c:if>
 		<%-- 运维人员导航 --%>

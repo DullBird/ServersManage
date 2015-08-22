@@ -1,7 +1,8 @@
 $(function(){
 	$('.carousel').carousel({
-		//初始化，不自动轮播
-		interval: false
+		//初始化
+		interval: false,	//不自动播放
+		keyboard:false		//禁止键盘
 	});
 	
 	//返回按钮

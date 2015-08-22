@@ -1,16 +1,14 @@
 package com.server.user.ajaxAction.admin;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.server.entity.User;
 import com.server.user.service.IUserService;
 import com.server.vo.JsonResult;
@@ -36,7 +34,7 @@ public class AjaxUserAction {
 	 */
 	@RequestMapping(value = "/addUser",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult addUser(@Valid User user,BindingResult br){
+	public JsonResult addUser(@Valid User user,BindingResult br,HttpSession session){
 		boolean isSuccess = false;
 		if(br.hasErrors()){
 			return new JsonResult(isSuccess,null);
@@ -59,7 +57,7 @@ public class AjaxUserAction {
 		String res = "true";
 		if(iuserService.checkUserExist(realName)){
 			//若已经存在，则不能通过验证，故返回false
-			res = "false";
+			res = "该用户已存在";
 		}
 		return res;
 	}
@@ -84,7 +82,7 @@ public class AjaxUserAction {
 	 */
 	@RequestMapping(value = "/resetPwd",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult resetPwd(User user){
+	public JsonResult resetPwd(User user,HttpSession session){
 		int res = iuserService.updatePwd("dg11185", user.getId());
 		if(res > 0){
 			return new JsonResult(true);
@@ -99,7 +97,7 @@ public class AjaxUserAction {
 	 */
 	@RequestMapping(value = "/deleteUser",method={RequestMethod.POST})
 	@ResponseBody
-	public JsonResult deleteUser(User user){
+	public JsonResult deleteUser(User user,HttpSession session){
 		int res = iuserService.deleteUser(user.getId());
 		if(res > 0){
 			return new JsonResult(true);

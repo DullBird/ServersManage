@@ -115,7 +115,7 @@
 		</div>
 	</div>
 	<%-- 创建人才可以管理可管理人员 --%>
-	<c:if test="${sessionUser.realName==server.createUser}">
+	<c:if test="${sessionUser.id==server.createUid}">
 		<div class="form-group">
 			<label class="col-sm-2 control-label">可管理人员</label>
 			<div class="col-sm-9">
