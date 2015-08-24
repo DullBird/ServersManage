@@ -82,12 +82,13 @@ public class ServerRelationDao extends BaseDao implements IServerRelationDao {
 		database.setCreateDate(new Date());
 		StringBuffer sql = new StringBuffer();
 		sql.append(" insert into tb_server_database ");
-		sql.append(" (id, sid, dbsid, dbuser, dbtablespace, dbtemptablespace, status, createdate,createuid) ");
+		sql.append(" (id, sid, dbsid, dbuser, dbtablespace, dbtemptablespace, status, createdate,createuid,appname) ");
 		sql.append(" values ");
-		sql.append(" (?,?,?,?,?,?,1,?,?) ");
+		sql.append(" (?,?,?,?,?,?,1,?,?,?) ");
 		this.saveORUpdate(sql.toString(),database.getId(), database.getsId(),
 				database.getDbSid(),database.getDbUser(),database.getDbTableSpace(),
-				database.getDbTempTableSpace(),database.getCreateDate(),userId);
+				database.getDbTempTableSpace(),database.getCreateDate(),userId,
+				database.getAppName());
 		return database;
 	}
 
@@ -222,11 +223,13 @@ public class ServerRelationDao extends BaseDao implements IServerRelationDao {
 		StringBuffer sql = new StringBuffer();
 		sql.append(" update tb_server_database d ");
 		sql.append(" set d.dbsid=?,d.dbuser=?, ");
-		sql.append(" d.dbtablespace=?,d.dbtemptablespace=? ");
+		sql.append(" d.dbtablespace=?,d.dbtemptablespace=?, ");
+		sql.append(" d.appname=? ");
 		sql.append(" where d.id=? ");
 		return this.saveORUpdate(sql.toString(), database.getDbSid(),
 				database.getDbUser(),database.getDbTableSpace(),
-				database.getDbTempTableSpace(),database.getId());
+				database.getDbTempTableSpace(),database.getAppName()
+				,database.getId());
 	}
 
 }

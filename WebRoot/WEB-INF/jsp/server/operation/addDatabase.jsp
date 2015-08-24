@@ -43,6 +43,14 @@
 				    <div class="col-sm-3 my-col-sm-3"></div>
 				</div>
 				<div class="form-group">
+				    <label class="col-sm-3 control-label">项目名称</label>
+				    <div class="col-sm-6">
+				    	<input name="appName" id="appName" type="text" class="form-control" placeholder="请填写该用户所属的项目">
+				    </div>
+				    <%-- 表单验证错误信息div --%>
+				    <div class="col-sm-3 my-col-sm-3"></div>
+				</div>
+				<div class="form-group">
 				    <div class="col-sm-offset-3 col-sm-10">
 				      <button type="submit" class="btn btn-default">提交</button>
 				      <button type="reset" class="btn btn-default">重置</button>

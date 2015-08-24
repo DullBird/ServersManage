@@ -28,6 +28,7 @@ public class Database {
 	private Integer status;				//状态，1：显示 0：删除
 	private Date createDate;			//创建时间
 	private Long createUid;				//创建人id;
+	private String appName;				//项目名称
 
 	public Long getId() {
 		return id;
@@ -99,6 +100,14 @@ public class Database {
 
 	public void setCreateUid(Long createUid) {
 		this.createUid = createUid;
+	}
+
+	public String getAppName() {
+		return appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
 	}
 	
 }

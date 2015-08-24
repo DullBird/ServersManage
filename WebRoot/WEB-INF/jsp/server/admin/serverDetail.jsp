@@ -174,6 +174,7 @@
 					<td>数据库用户</td>
 					<td>表空间</td>
 					<td>临时表空间</td>
+					<td>项目名称</td>
 					<td>创建时间</td>
 				</tr>
 				<c:forEach var="database" items="${server.dbList}" varStatus="step">
@@ -182,6 +183,7 @@
 						<td>${database.dbUser}</td>
 						<td>${database.dbTableSpace}</td>
 						<td>${database.dbTempTableSpace}</td>
+						<td>${database.appName}</td>
 						<td>
 							<fmt:formatDate value="${database.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 						</td>

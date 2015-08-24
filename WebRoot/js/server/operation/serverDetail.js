@@ -273,6 +273,7 @@ $(function(){
   						"<td>"+database.dbUser+"</td>"+
   						"<td>"+database.dbTableSpace+"</td>"+
   						"<td>"+database.dbTempTableSpace+"</td>"+
+  						"<td>"+database.appName+"</td>"+
   						"<td>"+database.createDate+"</td>" +
   						"<td>" +
   							"<a class='dbServer-del-btn no-text-decoration' databaseId='"+database.id+"' title='删除' onfocus='this.blur();' href='javascript:void(0);'><span class='glyphicon glyphicon-minus-sign' aria-hidden='true'></span></a> " +
@@ -330,6 +331,7 @@ $(function(){
   						$td.eq(1).text(database.dbUser);
   						$td.eq(2).text(database.dbTableSpace);
   						$td.eq(3).text(database.dbTempTableSpace);
+  						$td.eq(4).text(database.appName);
   					}else{
   						$.scojs_message(date.errorMsg, $.scojs_message.TYPE_ERROR);
   					}

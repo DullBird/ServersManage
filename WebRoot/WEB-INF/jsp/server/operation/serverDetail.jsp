@@ -221,13 +221,14 @@
 		<table class="table databaseTable">
 			<tbody>
 				<tr class="info">
-					<th style="text-align: center;" colspan="6">${serverType.name}</th>
+					<th style="text-align: center;" colspan="7">${serverType.name}</th>
 				</tr>
 				<tr>
 					<td>实例名</td>
 					<td>数据库用户</td>
 					<td>表空间</td>
 					<td>临时表空间</td>
+					<td>项目名称</td>
 					<td>创建时间</td>
 					<td>操作</td>
 				</tr>
@@ -237,6 +238,7 @@
 						<td>${database.dbUser}</td>
 						<td>${database.dbTableSpace}</td>
 						<td>${database.dbTempTableSpace}</td>
+						<td>${database.appName}</td>
 						<td>
 							<fmt:formatDate value="${database.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 						</td>
@@ -251,7 +253,7 @@
 					</tr>
 				</c:forEach>
 				<tr>
-					<td class="server-detail-type-add" colspan="6">
+					<td class="server-detail-type-add" colspan="7">
 						<a id="dbServer-add-btn" onfocus="this.blur();" href="javascript:void(0);">
 							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 							添加

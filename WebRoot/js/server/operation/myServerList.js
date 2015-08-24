@@ -218,6 +218,7 @@ $(function(){
 						$("#editDatabaseForm").find("input[name='dbUser']").val(database.dbUser);
 						$("#editDatabaseForm").find("input[name='dbTableSpace']").val(database.dbTableSpace);
 						$("#editDatabaseForm").find("input[name='dbTempTableSpace']").val(database.dbTempTableSpace);
+						$("#editDatabaseForm").find("input[name='appName']").val(database.appName);
 						$("#editDatabaseForm").find("input[name='id']").val(database.id);
 						//显示编辑代理服务器的表单弹出框
 						$("#editDatabaseModal").modal("show");
