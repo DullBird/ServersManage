@@ -5,7 +5,9 @@
 		<pattern>/user/ajax/*</pattern>
 		<pattern>/server/ajax/*</pattern>
 		<pattern>/login*</pattern>
+		<pattern>/noPermission</pattern>
 		<pattern>*.jsp</pattern>
+		<pattern>*.html</pattern>
 	</excludes>
 	<!-- 基础装饰器 -->
 	<decorator name="main" page="main.jsp">

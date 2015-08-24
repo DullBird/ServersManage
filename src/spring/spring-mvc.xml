@@ -46,7 +46,26 @@
 			<mvc:exclude-mapping path="/login" />
 			<mvc:exclude-mapping path="/verifyCode" />
 			<mvc:exclude-mapping path="/ajaxLogin" />
+			<mvc:exclude-mapping path="/noPermission" />
 			<bean class="com.server.interceptors.LoginInterceptor"></bean>
+		</mvc:interceptor>
+		<!-- 管理员权限拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/*/admin/**"/>
+			<mvc:mapping path="/*/ajax/admin/**"/>
+			<bean class="com.server.interceptors.AdminInterceptor"></bean>
+		</mvc:interceptor>
+		<!-- 运维人员权限拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/*/operation/**"/>
+			<mvc:mapping path="/*/ajax/operation/**"/>
+			<bean class="com.server.interceptors.OperationInterceptor"></bean>
+		</mvc:interceptor>
+		<!-- 观察者权限拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/*/watcher/**"/>
+			<mvc:mapping path="/*/ajax/watcher/**"/>
+			<bean class="com.server.interceptors.WatcherInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

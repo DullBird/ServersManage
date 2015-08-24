@@ -98,4 +98,13 @@ public class CommonAction {
 		return null;
 	}*/
 	
+	/**
+	 * 没有权限返回的页面
+	 * @return
+	 */
+	@RequestMapping(value="/noPermission")
+	public String noPermission(){
+		return "noPermission";
+	}
+	
 }
